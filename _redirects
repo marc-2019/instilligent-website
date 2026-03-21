@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects
+# Clean URLs
+/modular-compliance    /pages/modular-compliance.html    200
+/services              /pages/services.html              200
+
+# Catch old Simvoly paths if any
+/blog/*                https://ournewnormal.co.nz/:splat  301
