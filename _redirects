@@ -2,6 +2,8 @@
 # Clean URLs
 /modular-compliance    https://modularcompliance.com     301
 /services              /pages/services.html              200
+/about                 /pages/about.html                 200
+/privacy               /pages/privacy.html               200
 
 # Catch old Simvoly paths if any
 /blog/*                https://ournewnormal.co.nz/:splat  301
