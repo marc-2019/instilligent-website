@@ -30,19 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form handling
+    // Contact form handling - opens user's email client with pre-filled details
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-
-            btn.innerHTML = 'Sending...';
-            btn.disabled = true;
-
-            // For now, open mailto as fallback
-            // TODO: Replace with Cloudflare Worker endpoint
             const name = contactForm.querySelector('#name').value;
             const email = contactForm.querySelector('#email').value;
             const interest = contactForm.querySelector('#interest').value;
@@ -52,18 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
 
             window.location.href = `mailto:marc@instilligent.com?subject=${subject}&body=${body}`;
-
-            setTimeout(() => {
-                btn.innerHTML = 'Message Sent ✓';
-                btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    contactForm.reset();
-                    lucide.createIcons();
-                }, 2000);
-            }, 500);
         });
     }
 

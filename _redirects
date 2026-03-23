@@ -1,6 +1,6 @@
 # Cloudflare Pages redirects
 # Clean URLs
-/modular-compliance    /pages/modular-compliance.html    200
+/modular-compliance    https://modularcompliance.com     301
 /services              /pages/services.html              200
 
 # Catch old Simvoly paths if any
