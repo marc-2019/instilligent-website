@@ -30,40 +30,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form handling
+    // Contact form handling — opens user's email client pre-filled (mailto fallback)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+        // Add a note so users know clicking Send opens their email client
+        const formNote = document.createElement('p');
+        formNote.style.cssText = 'margin-top:0.5rem;font-size:0.8rem;opacity:0.7;text-align:center;';
+        formNote.textContent = 'Clicking Send will open your email client with this message pre-filled.';
+        contactForm.appendChild(formNote);
+
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
+            // Find the text node (first child, before any icon element)
+            const textNode = Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
+            const originalText = textNode ? textNode.textContent : 'Send Message ';
 
-            btn.innerHTML = 'Sending...';
-            btn.disabled = true;
-
-            // For now, open mailto as fallback
-            // TODO: Replace with Cloudflare Worker endpoint
             const name = contactForm.querySelector('#name').value;
             const email = contactForm.querySelector('#email').value;
             const interest = contactForm.querySelector('#interest').value;
             const message = contactForm.querySelector('#message').value;
 
-            const subject = encodeURIComponent(`Website Enquiry: ${interest || 'General'}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
+            const subject = encodeURIComponent('Website Enquiry: ' + (interest || 'General'));
+            const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\n' + message);
 
-            window.location.href = `mailto:marc@instilligent.com?subject=${subject}&body=${body}`;
+            window.location.href = 'mailto:marc@instilligent.com?subject=' + subject + '&body=' + body;
+
+            if (textNode) { textNode.textContent = 'Opening email client… '; }
+            btn.disabled = true;
 
             setTimeout(() => {
-                btn.innerHTML = 'Message Sent ✓';
-                btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    contactForm.reset();
-                    lucide.createIcons();
-                }, 2000);
-            }, 500);
+                if (textNode) { textNode.textContent = originalText; }
+                btn.disabled = false;
+                contactForm.reset();
+            }, 3000);
         });
     }
 

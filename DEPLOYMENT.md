@@ -57,6 +57,28 @@ In Cloudflare Pages project settings:
 
 ---
 
+## ⚠️ CURRENT ISSUE: Naked Domain (instilligent.com) Still Points to Old AWS Site
+
+**Symptom**: `instilligent.com` (without www) resolves to the old Simvoly/AWS server (52.2.101.114).
+`www.instilligent.com` may be working correctly on Cloudflare Pages already.
+
+**Root Cause**: The DNS `A` record for `@` (naked domain) still points to `52.2.101.114` in DNS Made Easy (or whoever currently manages DNS). The Cloudflare Pages custom domain only covers `www`, not the root.
+
+**Fix (two options):**
+
+### Option A — Move DNS to Cloudflare (recommended, see Step 4 below)
+Move nameservers to Cloudflare, then add `instilligent.com` as a custom domain in Cloudflare Pages.
+Cloudflare will automatically handle the naked-domain → Pages routing via its CNAME flattening.
+
+### Option B — Quick fix using current DNS provider
+In DNS Made Easy (or your current registrar):
+1. Delete the `A @ 52.2.101.114` record
+2. Add a new `CNAME @ instilligent.pages.dev` record
+   *(If your provider doesn't support CNAME on root, add an `A` record pointing to Cloudflare's Pages IP — or use Option A)*
+3. In Cloudflare Pages → Custom domains → Add `instilligent.com` (not just www)
+
+---
+
 ## Step 4: Migrate DNS to Cloudflare
 
 ### Current DNS Records (DNS Made Easy)
@@ -131,9 +153,8 @@ instilligent-website/
 ├── images/
 │   └── favicon.svg               # Purple "I" favicon
 ├── pages/
-│   ├── modular-compliance.html   # Product page
 │   └── services.html             # Services page
-├── _redirects                    # Cloudflare Pages URL redirects
+├── _redirects                    # Cloudflare Pages URL redirects (/modular-compliance → external)
 ├── _headers                      # Security headers & caching
 └── DEPLOYMENT.md                 # This file
 ```
