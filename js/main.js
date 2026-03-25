@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = encodeURIComponent('Website Enquiry: ' + (interest || 'General'));
             const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + interest + '\n\n' + message);
 
-            window.location.href = 'mailto:marc@instilligent.com?subject=' + subject + '&body=' + body;
+            window.location.href = 'mailto:info@instilligent.com?subject=' + subject + '&body=' + body;
 
             if (textNode) { textNode.textContent = 'Opening email client… '; }
             btn.disabled = true;
