@@ -145,16 +145,9 @@ a:hover { color: var(--primary-light); }
 .nav-logo:hover { color: var(--text); }
 
 .logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 36px;
     height: 36px;
-    background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
-    color: white;
-    border-radius: var(--radius-md);
-    font-weight: 800;
-    font-size: var(--text-lg);
+    flex-shrink: 0;
 }
 
 .logo-text { letter-spacing: -0.02em; }
