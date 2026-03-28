@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="Instilligent">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#581c87"/>
+    </linearGradient>
+  </defs>
+  <!-- Purple circle background -->
+  <circle cx="20" cy="20" r="20" fill="url(#bg)"/>
+  <!-- Stylised "i" mark: dot + stem -->
+  <circle cx="20" cy="11" r="2.5" fill="white"/>
+  <rect x="17.5" y="16" width="5" height="14" rx="2.5" fill="white"/>
+</svg>
