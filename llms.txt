@@ -1,0 +1,31 @@
+# Instilligent Limited
+
+> AI consultancy and product studio building intelligent solutions for regulated industries across New Zealand, Australia, and Southeast Asia.
+
+## About
+
+Instilligent is a New Zealand-based software company that combines deep AI expertise with hands-on consulting to help organisations in regulated industries move faster, stay compliant, and build smarter.
+
+## Products
+
+- [Modular Compliance](https://modularcompliance.com): Cloud-based compliance management platform for NZ and AU SMEs. Supports ISO 27001, SOC 2, NZ Privacy Act, AML/CFT, Health and Safety, Food Safety, and more. From NZD 199/month.
+- [Our New Normal](https://ournewnormal.co.nz): New Zealand business directory and local insights platform.
+- [Boss Board](https://bossboard.instilligent.com): Health and safety compliance for NZ tradespeople.
+- [CodeHumanist](https://codehumanist.com): Developer tools and AI-powered productivity.
+- [ProofOnce](https://proofonce.com): Document and identity verification platform.
+
+## Services
+
+- AI Consulting and Advisory
+- Specialist Contracting
+- Technology Strategy
+- Systems Integration
+- Compliance Automation
+
+## Contact
+
+- Website: https://instilligent.com
+- Email: info@instilligent.com
+- LinkedIn: https://www.linkedin.com/company/instilligent
+- Location: New Zealand
+- NZBN: 9429051796284
