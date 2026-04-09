@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Instilligent Limited</title>
+    <meta name="description" content="Privacy Policy for Instilligent Limited and its products. Compliant with the New Zealand Privacy Act 2020.">
+
+    <meta property="og:title" content="Privacy Policy | Instilligent Limited">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://instilligent.com/pages/privacy">
+
+    <link rel="icon" type="image/svg+xml" href="/images/favicon-v2.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Privacy page specific styles */
+        .privacy-hero {
+            padding: calc(72px + var(--space-4xl)) 0 var(--space-3xl);
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(107,33,168,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(147,51,234,0.05) 0%, transparent 50%);
+        }
+
+        .privacy-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-md);
+        }
+
+        .privacy-hero .lead {
+            font-size: var(--text-base);
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .privacy-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .privacy-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        .privacy-meta-item i { color: var(--primary); }
+
+        /* Layout */
+        .privacy-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: var(--space-3xl);
+            align-items: start;
+            padding: var(--space-3xl) 0 var(--space-4xl);
+        }
+
+        /* Sidebar TOC */
+        .privacy-toc {
+            position: sticky;
+            top: 88px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+        }
+
+        .privacy-toc h4 {
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+
+        .privacy-toc ol {
+            list-style: none;
+            counter-reset: toc;
+        }
+
+        .privacy-toc li {
+            counter-increment: toc;
+            margin-bottom: var(--space-xs);
+        }
+
+        .privacy-toc a {
+            display: block;
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+            padding: 4px 0;
+            transition: color var(--transition);
+            line-height: 1.4;
+        }
+
+        .privacy-toc a:hover {
+            color: var(--primary);
+        }
+
+        /* Content */
+        .privacy-content {
+            max-width: 720px;
+        }
+
+        .privacy-section {
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-3xl);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .privacy-section:last-child {
+            border-bottom: none;
+        }
+
+        .privacy-section-number {
+            display: inline-block;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .privacy-section h2 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-lg);
+            color: var(--gray-900);
+        }
+
+        .privacy-section h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--gray-800);
+        }
+
+        .privacy-section p {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+
+        .privacy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section ul,
+        .privacy-section ol {
+            padding-left: var(--space-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .privacy-section li {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Info box */
+        .info-box {
+            background: var(--purple-50);
+            border: 1px solid var(--purple-200);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: var(--text-sm);
+            color: var(--gray-700);
+        }
+
+        .info-box strong {
+            color: var(--gray-900);
+        }
+
+        /* Warning box */
+        .warning-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            font-size: var(--text-sm);
+            color: var(--gray-700);
+        }
+
+        /* Third-party table */
+        .third-party-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-xl) 0;
+            font-size: var(--text-sm);
+        }
+
+        .third-party-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            font-weight: 700;
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gray-600);
+        }
+
+        .third-party-table td {
+            padding: var(--space-sm) var(--space-md);
+            border: 1px solid var(--gray-200);
+            color: var(--gray-700);
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .third-party-table tr:nth-child(even) td {
+            background: var(--gray-50);
+        }
+
+        /* Contact card */
+        .contact-card {
+            background: var(--gray-900);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .contact-card p {
+            color: var(--gray-400);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-card a {
+            color: var(--purple-300);
+        }
+
+        .contact-card a:hover {
+            color: var(--purple-200);
+        }
+
+        @media (max-width: 900px) {
+            .privacy-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-toc {
+                position: static;
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .third-party-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/images/logo-mark-v2.svg" class="logo-icon" alt="Instilligent" width="36" height="36">
+                <span class="logo-text">Instilligent</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link nav-dropdown-trigger">Products <i data-lucide="chevron-down" class="icon-sm"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://modularcompliance.com" class="dropdown-item" target="_blank" rel="noopener">
+                            <i data-lucide="shield-check" class="icon-sm"></i>
+                            <div>
+                                <strong>Modular Compliance</strong>
+                                <span>Regulatory compliance automation</span>
+                            </div>
+                        </a>
+                        <a href="https://ournewnormal.co.nz" class="dropdown-item" target="_blank" rel="noopener">
+                            <i data-lucide="newspaper" class="icon-sm"></i>
+                            <div>
+                                <strong>Our New Normal</strong>
+                                <span>AI-powered content platform</span>
+                            </div>
+                        </a>
+                        <a href="https://bossboard.instilligent.com" class="dropdown-item" target="_blank" rel="noopener">
+                            <i data-lucide="hard-hat" class="icon-sm"></i>
+                            <div>
+                                <strong>Boss Board</strong>
+                                <span>NZ trade compliance for tradies</span>
+                            </div>
+                        </a>
+                        <a href="https://codehumanist.com" class="dropdown-item" target="_blank" rel="noopener">
+                            <i data-lucide="code-2" class="icon-sm"></i>
+                            <div>
+                                <strong>CodeHumanist</strong>
+                                <span>AI-powered developer tools</span>
+                            </div>
+                        </a>
+                        <a href="https://proofonce.com" class="dropdown-item" target="_blank" rel="noopener">
+                            <i data-lucide="check-circle" class="icon-sm"></i>
+                            <div>
+                                <strong>ProofOnce</strong>
+                                <span>Document verification platform</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="/pages/services" class="nav-link">Services</a>
+                <a href="/pages/about" class="nav-link">About</a>
+                <a href="/#contact" class="nav-link btn btn-primary btn-sm">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="privacy-hero">
+        <div class="container">
+            <span class="section-tag">Legal</span>
+            <h1>Privacy Policy</h1>
+            <p class="lead">This policy explains how Instilligent Limited collects, uses, and protects personal information in accordance with the New Zealand Privacy Act 2020.</p>
+            <div class="privacy-meta">
+                <span class="privacy-meta-item">
+                    <i data-lucide="calendar" class="icon-sm"></i>
+                    Effective: 23 March 2026
+                </span>
+                <span class="privacy-meta-item">
+                    <i data-lucide="refresh-cw" class="icon-sm"></i>
+                    Last updated: 23 March 2026
+                </span>
+                <span class="privacy-meta-item">
+                    <i data-lucide="map-pin" class="icon-sm"></i>
+                    Governed by NZ law
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="privacy-layout">
+
+            <!-- TOC Sidebar -->
+            <aside class="privacy-toc">
+                <h4>Contents</h4>
+                <ol>
+                    <li><a href="#who-we-are">Who We Are</a></li>
+                    <li><a href="#products-covered">Products Covered</a></li>
+                    <li><a href="#information-we-collect">Information We Collect</a></li>
+                    <li><a href="#how-we-use">How We Use Information</a></li>
+                    <li><a href="#third-parties">Third-Party Services</a></li>
+                    <li><a href="#offshore-disclosure">Offshore Disclosure</a></li>
+                    <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+                    <li><a href="#data-retention">Data Retention</a></li>
+                    <li><a href="#your-rights">Your Rights</a></li>
+                    <li><a href="#children">Children &amp; COPPA</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </aside>
+
+            <!-- Main content -->
+            <main class="privacy-content">
+
+                <div class="privacy-section" id="who-we-are">
+                    <span class="privacy-section-number">Section 1</span>
+                    <h2>Who We Are</h2>
+                    <p>This Privacy Policy applies to Instilligent Limited, a company registered in New Zealand.</p>
+                    <ul>
+                        <li><strong>Company name:</strong> Instilligent Limited</li>
+                        <li><strong>NZBN:</strong> 9429051796284</li>
+                        <li><strong>Registered office:</strong> Auckland, New Zealand</li>
+                        <li><strong>Privacy contact:</strong> <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a></li>
+                    </ul>
+                    <p>Instilligent Limited is the Privacy Act agency responsible for the personal information described in this policy. We operate as an AI consultancy and product studio, building and delivering software products and consulting services for regulated industries.</p>
+                    <p>This policy applies to all websites, applications, and services operated directly by Instilligent Limited under the instilligent.com domain and any sub-domains, as well as the products listed in Section 2. Individual products may also publish their own supplemental privacy notices where additional or different practices apply.</p>
+                </div>
+
+                <div class="privacy-section" id="products-covered">
+                    <span class="privacy-section-number">Section 2</span>
+                    <h2>Products Covered</h2>
+                    <p>This policy covers the following Instilligent Limited products and services. Each product may collect and process personal information differently, as described in this policy and any product-specific notices.</p>
+
+                    <h3>Live Products</h3>
+                    <ul>
+                        <li><strong>instilligent.com</strong> — Corporate website and primary web presence</li>
+                        <li><strong>Modular Compliance</strong> (modularcompliance.com) — Compliance management platform for NZ and Australian SMEs</li>
+                        <li><strong>Our New Normal</strong> (ournewnormal.co.nz) — AI-powered content platform</li>
+                    </ul>
+
+                    <h3>Additional Products</h3>
+                    <ul>
+                        <li><strong>Boss Board</strong> (bossboard.instilligent.com) — NZ trade compliance platform for tradespeople</li>
+                        <li><strong>CodeHumanist</strong> (codehumanist.com) — AI-powered developer tools and productivity platform</li>
+                        <li><strong>ProofOnce</strong> (proofonce.com) — Document and identity verification platform</li>
+                    </ul>
+
+                    <h3>Consulting Services</h3>
+                    <ul>
+                        <li><strong>AI Consulting &amp; Delivery</strong> — Technology consulting and specialist contracting services delivered to client organisations</li>
+                    </ul>
+
+                    <p>Where we act as a data processor on behalf of a client organisation (for example, when providing consulting services), the client's own privacy policy and data processing agreements govern the use of personal information we handle on their behalf. This policy covers Instilligent Limited's activities as a data controller.</p>
+
+                    <div class="info-box">
+                        <p><strong>Modular Compliance:</strong> The Modular Compliance platform operates under its own detailed Privacy Policy available at modularcompliance.com. That policy provides specific detail on how compliance and business data is handled, stored, and protected. Users of Modular Compliance should read both this policy and the Modular Compliance-specific policy.</p>
+                    </div>
+                </div>
+
+                <div class="privacy-section" id="information-we-collect">
+                    <span class="privacy-section-number">Section 3</span>
+                    <h2>Information We Collect</h2>
+
+                    <h3>Information You Provide Directly</h3>
+                    <p>We collect information you give us voluntarily, including:</p>
+                    <ul>
+                        <li>Name and email address (contact forms, account registration, newsletter sign-up)</li>
+                        <li>Business name and role (when relevant to service delivery)</li>
+                        <li>Payment information (processed via Stripe — we do not store card numbers)</li>
+                        <li>Messages, enquiries, and correspondence you send us</li>
+                        <li>Account credentials for products that require login</li>
+                        <li>Profile information you choose to provide within our products</li>
+                    </ul>
+
+                    <h3>Information Collected Automatically</h3>
+                    <p>When you visit our websites or use our products, we may collect:</p>
+                    <ul>
+                        <li>IP address and approximate geographic location</li>
+                        <li>Browser type, operating system, and device information</li>
+                        <li>Pages visited, time spent, and navigation patterns</li>
+                        <li>Referring website and search terms used to find us</li>
+                        <li>Feature usage and product interaction data</li>
+                        <li>Error logs and performance data</li>
+                    </ul>
+
+                    <h3>Information From Third Parties</h3>
+                    <p>We may receive information about you from third parties, including:</p>
+                    <ul>
+                        <li>Payment processors (transaction confirmation, payment status)</li>
+                        <li>Analytics providers (aggregated usage and traffic data)</li>
+                        <li>Directory services where you have registered a profile that is connected to our platform</li>
+                    </ul>
+
+                    <h3>Sensitive Information</h3>
+                    <p>We do not intentionally collect sensitive personal information (as defined under the Privacy Act 2020, including health information, financial account details beyond what is necessary for payment processing, or information about criminal history) unless it is directly necessary for a specific service and you have provided explicit consent. If a specific product requires sensitive information, the relevant product privacy notice will describe this.</p>
+                </div>
+
+                <div class="privacy-section" id="how-we-use">
+                    <span class="privacy-section-number">Section 4</span>
+                    <h2>How We Use Information</h2>
+                    <p>We use personal information for purposes that are consistent with why it was collected. These include:</p>
+
+                    <h3>Service Delivery</h3>
+                    <ul>
+                        <li>Providing, operating, and improving our products and services</li>
+                        <li>Processing transactions and managing accounts</li>
+                        <li>Responding to enquiries and providing customer support</li>
+                        <li>Delivering consulting and advisory services</li>
+                    </ul>
+
+                    <h3>Communications</h3>
+                    <ul>
+                        <li>Sending transactional emails (account confirmation, receipts, password reset)</li>
+                        <li>Sending service updates and important notices</li>
+                        <li>Marketing communications where you have opted in or where we have a legitimate interest and provide an easy opt-out</li>
+                    </ul>
+
+                    <h3>Product Improvement</h3>
+                    <ul>
+                        <li>Analysing usage patterns to improve features and user experience</li>
+                        <li>Debugging errors and improving performance</li>
+                        <li>Research and development of new features</li>
+                    </ul>
+
+                    <h3>Legal and Compliance</h3>
+                    <ul>
+                        <li>Complying with our legal obligations under NZ law</li>
+                        <li>Protecting our legal rights and enforcing our terms of service</li>
+                        <li>Preventing fraud, abuse, and unauthorised use</li>
+                    </ul>
+
+                    <p>We will not use your personal information for purposes that are incompatible with why it was collected, unless we have your consent or are required to do so by law (Information Privacy Principle 10).</p>
+                </div>
+
+                <div class="privacy-section" id="third-parties">
+                    <span class="privacy-section-number">Section 5</span>
+                    <h2>Third-Party Services</h2>
+                    <p>We use the following third-party services to operate our products. Each of these services may process personal information as part of their function. We have listed the primary services, their purpose, the data they process, and the privacy policies you can consult for more information.</p>
+
+                    <table class="third-party-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Purpose</th>
+                                <th>Data Processed</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Google Analytics 4 (GA4)</strong></td>
+                                <td>Website analytics and usage measurement</td>
+                                <td>IP address (anonymised), pages visited, device/browser, session data</td>
+                                <td>USA (Google LLC)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stripe</strong></td>
+                                <td>Payment processing</td>
+                                <td>Name, email, payment card details (processed by Stripe; we receive confirmation only)</td>
+                                <td>USA (Stripe, Inc.)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cloudflare</strong></td>
+                                <td>CDN, DDoS protection, DNS, Pages hosting</td>
+                                <td>IP address, request metadata, cached content</td>
+                                <td>Global (Cloudflare, Inc., USA)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Railway</strong></td>
+                                <td>Application hosting and infrastructure</td>
+                                <td>Application data, logs, user data stored in hosted databases</td>
+                                <td>USA (West region, Railway Corp.)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resend</strong></td>
+                                <td>Transactional email delivery</td>
+                                <td>Email address, email content (transactional messages)</td>
+                                <td>USA (Resend, Inc.)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Brilliant Directories</strong></td>
+                                <td>Directory platform (used for certain products)</td>
+                                <td>Profile data, name, email, business information</td>
+                                <td>USA (Dallas, Texas, Brilliant Directories LLC)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>We select third-party providers with care and, where possible, enter into data processing agreements. However, each provider operates under its own privacy policy. We encourage you to review the privacy policies of these services if you have concerns about how they handle your information.</p>
+
+                    <p>We do not sell personal information to third parties and do not use personal information for purposes unrelated to our services.</p>
+                </div>
+
+                <div class="privacy-section" id="offshore-disclosure">
+                    <span class="privacy-section-number">Section 6</span>
+                    <h2>Offshore Disclosure (IPP 12)</h2>
+                    <p>Under Information Privacy Principle 12 of the New Zealand Privacy Act 2020, we are required to disclose when personal information is sent offshore and to take reasonable steps to ensure it receives comparable protection to that required under New Zealand law.</p>
+
+                    <p>Instilligent Limited operates with infrastructure and third-party services that process personal information outside of New Zealand. The primary offshore locations are:</p>
+
+                    <div class="info-box">
+                        <p><strong>United States — Railway (US-West region):</strong> Application databases and backend services for our products are hosted on Railway infrastructure in the United States (West Coast region). This includes user account data, compliance records, and other product data for Modular Compliance and other hosted products.</p>
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>United States — Brilliant Directories (Dallas, Texas):</strong> Directory-based product functionality is provided by Brilliant Directories, whose infrastructure is located in Dallas, Texas, USA. Member profile data and directory listings are stored on their platform.</p>
+                    </div>
+
+                    <p>Additional offshore processing occurs via Cloudflare (global CDN, USA-headquartered), Google Analytics 4 (USA), Stripe (USA), and Resend (USA) as described in Section 5.</p>
+
+                    <p>When transferring information offshore, we take reasonable steps to ensure that the overseas recipient is subject to privacy obligations comparable to those in the New Zealand Privacy Act 2020, including through:</p>
+                    <ul>
+                        <li>Selecting providers based in jurisdictions with comparable privacy frameworks (such as the USA under applicable Federal and State laws)</li>
+                        <li>Entering into data processing agreements with key providers where available</li>
+                        <li>Reviewing provider privacy policies and security certifications</li>
+                    </ul>
+
+                    <p>You may contact us at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a> if you wish to obtain more information about the safeguards we have in place for offshore transfers.</p>
+                </div>
+
+                <div class="privacy-section" id="cookies">
+                    <span class="privacy-section-number">Section 7</span>
+                    <h2>Cookies &amp; Tracking</h2>
+                    <p>We use cookies and similar tracking technologies on our websites and products. Cookies are small data files stored on your device that help us operate our services and understand how they are used.</p>
+
+                    <h3>Types of Cookies We Use</h3>
+
+                    <h3>Essential Cookies</h3>
+                    <p>These cookies are necessary for our websites and products to function. They cannot be disabled without breaking functionality.</p>
+                    <ul>
+                        <li>Session cookies to maintain your login state</li>
+                        <li>Security cookies (CSRF protection, fraud prevention)</li>
+                        <li>Load balancing and infrastructure cookies</li>
+                    </ul>
+
+                    <h3>Analytics Cookies</h3>
+                    <p>We use Google Analytics 4 to measure how our websites are used. GA4 sets cookies to track sessions, pages visited, and user behaviour in aggregate. IP addresses are anonymised where possible. You can opt out of Google Analytics tracking by:</p>
+                    <ul>
+                        <li>Installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics opt-out browser add-on</a></li>
+                        <li>Using browser privacy settings or a privacy-focused browser extension</li>
+                        <li>Enabling "Do Not Track" (note: not all systems honour this signal)</li>
+                    </ul>
+
+                    <h3>Functional Cookies</h3>
+                    <p>These cookies remember your preferences and settings (such as language or display preferences) to improve your experience.</p>
+
+                    <h3>Managing Cookies</h3>
+                    <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies, delete existing cookies, or be notified when cookies are set. Disabling certain cookies may affect the functionality of our websites and products. Please consult your browser's help documentation for instructions on managing cookies.</p>
+                </div>
+
+                <div class="privacy-section" id="data-retention">
+                    <span class="privacy-section-number">Section 8</span>
+                    <h2>Data Retention</h2>
+                    <p>We retain personal information only for as long as necessary to fulfil the purposes for which it was collected, or as required by law. Our general retention practices are:</p>
+
+                    <ul>
+                        <li><strong>Account data:</strong> Retained for the duration of your account and for up to 3 years after account closure, unless you request deletion sooner</li>
+                        <li><strong>Transaction records:</strong> Retained for 7 years for financial and tax compliance purposes</li>
+                        <li><strong>Contact form submissions:</strong> Retained for up to 2 years unless an ongoing business relationship develops</li>
+                        <li><strong>Analytics data:</strong> Retained by Google Analytics 4 for up to 14 months (our configured retention period)</li>
+                        <li><strong>Email records:</strong> Transactional email logs retained for up to 90 days by our email provider; our own records retained in line with relevant account data</li>
+                        <li><strong>Security logs:</strong> Retained for up to 12 months for security incident investigation purposes</li>
+                        <li><strong>Compliance product data:</strong> Retained as specified in the Modular Compliance Privacy Policy and applicable data processing agreements</li>
+                    </ul>
+
+                    <p>When personal information is no longer required, we take reasonable steps to destroy or de-identify it in a secure manner (Information Privacy Principle 9).</p>
+                </div>
+
+                <div class="privacy-section" id="your-rights">
+                    <span class="privacy-section-number">Section 9</span>
+                    <h2>Your Rights Under the Privacy Act 2020</h2>
+                    <p>Under the New Zealand Privacy Act 2020, you have the following rights in relation to personal information we hold about you:</p>
+
+                    <h3>Right of Access (IPP 6)</h3>
+                    <p>You have the right to request access to personal information we hold about you. We will respond to access requests within 20 working days. We may charge a reasonable fee for providing access in certain circumstances.</p>
+
+                    <h3>Right of Correction (IPP 7)</h3>
+                    <p>If you believe personal information we hold about you is inaccurate, incomplete, or misleading, you may request that we correct it. We will respond within 20 working days and either make the correction or explain why we are not making it.</p>
+
+                    <h3>Right to Raise a Complaint</h3>
+                    <p>If you believe we have breached the Privacy Act 2020, you may:</p>
+                    <ul>
+                        <li>Contact us directly at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a> — we aim to resolve complaints within 10 working days</li>
+                        <li>Make a complaint to the <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">Office of the Privacy Commissioner</a> if you are not satisfied with our response</li>
+                    </ul>
+
+                    <h3>Opting Out of Marketing</h3>
+                    <p>You may opt out of marketing communications at any time by:</p>
+                    <ul>
+                        <li>Clicking the unsubscribe link in any marketing email</li>
+                        <li>Emailing us at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a></li>
+                        <li>Updating your preferences in your account settings (where available)</li>
+                    </ul>
+                    <p>Opting out of marketing will not affect transactional or service-related communications, which we may still send as necessary.</p>
+
+                    <h3>Requesting Deletion</h3>
+                    <p>You may request deletion of your personal information. We will comply where we are not legally required to retain it. Some information may be retained for legal compliance, financial records, or security purposes even after a deletion request.</p>
+
+                    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a> with your request. We may need to verify your identity before processing your request.</p>
+                </div>
+
+                <div class="privacy-section" id="children">
+                    <span class="privacy-section-number">Section 10</span>
+                    <h2>Children &amp; COPPA Notice</h2>
+                    <p>Our primary products and consulting services are designed for adults and business users. We do not knowingly collect personal information from children under the age of 13.</p>
+
+                    <div class="warning-box">
+                        <p><strong>COPPA Notice:</strong> If any Instilligent Limited product includes games, interactive features, or entertainment content that may be accessible to children under 13 in the United States, we comply with the Children's Online Privacy Protection Act (COPPA). Such features will not knowingly collect personal information from children under 13 without verifiable parental consent. Parents or guardians who believe their child has provided us personal information should contact us at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a> and we will delete that information promptly.</p>
+                    </div>
+
+                    <p>Users under 16 should not use our products without parental or guardian consent. If you become aware that a child has provided us with personal information without parental consent, please contact us immediately at <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a>.</p>
+                </div>
+
+                <div class="privacy-section" id="security">
+                    <span class="privacy-section-number">Section 11</span>
+                    <h2>Security</h2>
+                    <p>We take the security of personal information seriously and implement reasonable technical and organisational measures to protect it from unauthorised access, disclosure, alteration, or destruction (Information Privacy Principle 5).</p>
+
+                    <p>Our security measures include:</p>
+                    <ul>
+                        <li>Encryption of data in transit (HTTPS/TLS for all web traffic)</li>
+                        <li>Encryption of sensitive data at rest where applicable</li>
+                        <li>Access controls limiting who can access personal information within our systems</li>
+                        <li>Use of established, security-reviewed infrastructure providers</li>
+                        <li>Regular review of our security practices</li>
+                    </ul>
+
+                    <p>No system is completely secure. While we strive to protect your information, we cannot guarantee absolute security. If we become aware of a data breach that is likely to cause serious harm, we will notify affected individuals and the Office of the Privacy Commissioner in accordance with the Privacy Act 2020's mandatory breach notification requirements.</p>
+
+                    <p>If you become aware of any security vulnerability or incident related to our systems, please report it to <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a>.</p>
+                </div>
+
+                <div class="privacy-section" id="changes">
+                    <span class="privacy-section-number">Section 12</span>
+                    <h2>Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time as our products evolve, services change, or legal requirements are updated. When we make material changes, we will:</p>
+                    <ul>
+                        <li>Update the "Last updated" date at the top of this policy</li>
+                        <li>Where practical, notify registered users via email or in-product notification</li>
+                        <li>Keep the previous version accessible on request</li>
+                    </ul>
+                    <p>We encourage you to review this policy periodically. Continued use of our products and services after a change to this policy constitutes acceptance of the updated terms.</p>
+                </div>
+
+                <div class="privacy-section" id="contact">
+                    <span class="privacy-section-number">Section 13</span>
+                    <h2>Contact Us</h2>
+                    <p>For any privacy-related queries, access requests, correction requests, complaints, or general questions about this policy, please contact our privacy team:</p>
+
+                    <div class="contact-card">
+                        <h3>Privacy Enquiries</h3>
+                        <p>Instilligent Limited<br>Auckland, New Zealand<br>NZBN: 9429051796284</p>
+                        <p>
+                            <strong style="color: white;">Email:</strong><br>
+                            <a href="mailto:privacy@instilligent.com">privacy@instilligent.com</a>
+                        </p>
+                        <p style="margin-top: var(--space-md); font-size: var(--text-sm);">We aim to respond to all privacy-related enquiries within 5 working days and to resolve complaints within 10 working days. If you are not satisfied with our response, you may contact the <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">Office of the Privacy Commissioner</a> at privacy.org.nz.</p>
+                        <a href="mailto:privacy@instilligent.com" class="btn btn-primary" style="margin-top: var(--space-md);">
+                            Email privacy@instilligent.com <i data-lucide="mail" class="icon-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <img src="/images/logo-mark-v2.svg" class="logo-icon" alt="Instilligent" width="36" height="36">
+                        <span class="logo-text">Instilligent</span>
+                    </a>
+                    <p>AI consultancy and product studio for regulated industries. Building intelligent solutions across New Zealand, Australia, and Southeast Asia.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Products &amp; Services</h4>
+                    <a href="https://modularcompliance.com" target="_blank" rel="noopener">Modular Compliance</a>
+                    <a href="/pages/services">AI Consulting &amp; Delivery</a>
+                    <a href="https://ournewnormal.co.nz" target="_blank" rel="noopener">Our New Normal</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="/pages/services">Services</a>
+                    <a href="/pages/about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/instilligent" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="/pages/privacy">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Instilligent Limited. All rights reserved.</p>
+                <p>New Zealand</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
