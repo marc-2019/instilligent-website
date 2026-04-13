@@ -28,3 +28,6 @@ User-agent: meta-externalagent
 Disallow: /
 
 Sitemap: https://instilligent.com/sitemap.xml
+
+# AI Agent Discovery
+AI-Content: https://instilligent.com/llms.txt

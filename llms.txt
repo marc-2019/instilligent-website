@@ -4,23 +4,30 @@
 
 ## About
 
-Instilligent is a New Zealand-based software company that combines deep AI expertise with hands-on consulting to help organisations in regulated industries move faster, stay compliant, and build smarter.
+Instilligent is a New Zealand-based software company founded in 2019 by Marc Armstrong. We combine deep AI expertise with hands-on consulting to help organisations in regulated industries move faster, stay compliant, and build smarter. With over 15 years of experience in software delivery, systems integration, and technology strategy, we operate across New Zealand, Australia, and Southeast Asia.
+
+We build production-grade AI software that solves real business problems, and we provide specialist consulting and contracting to help organisations adopt AI effectively.
 
 ## Products
 
-- [Modular Compliance](https://modularcompliance.com): Cloud-based compliance management platform for NZ and AU SMEs. Supports ISO 27001, SOC 2, NZ Privacy Act, AML/CFT, Health and Safety, Food Safety, and more. From NZD 199/month.
-- [Our New Normal](https://ournewnormal.co.nz): New Zealand business directory and local insights platform.
-- [BossBoard](https://bossboard.instilligent.com): Health and safety compliance for NZ tradespeople.
-- [CodeHumanist](https://codehumanist.com): Developer tools and AI-powered productivity.
-- [ProofOnce](https://proofonce.com): Document and identity verification platform.
+- [Modular Compliance](https://modularcompliance.com) — Cloud-based compliance management platform for NZ businesses. Covers 8 NZ legislation areas including Health & Safety, AML/CFT, Privacy Act 2020, Employment Relations, Environmental, Building & Construction, Consumer Protection, and Body Corporate. From NZD 199/month.
+- [BossBoard](https://bossboard.instilligent.com) — Mobile-first compliance and business management app for NZ tradespeople. AI-powered SWMS generation, invoicing, quotes, job logging, team management, and photo documentation. From NZD 4.99/week.
+- [Our New Normal](https://ournewnormal.co.nz) — New Zealand business directory and local insights platform connecting communities across Aotearoa. Free and paid listings for small businesses.
+- [R3 Fleet Management](https://r3-platform-production.up.railway.app) — Fleet management platform with AI-powered optimization, real-time GPS tracking, dispatch operations, customer booking, and comprehensive reporting.
+- [CodeHumanist](https://codehumanist.com) — Developer tools and AI-powered productivity for software teams.
+- [ProofOnce](https://proofonce.com) — Document and identity verification platform. Verify once, use everywhere.
 
 ## Services
 
-- AI Consulting and Advisory
-- Specialist Contracting
-- Technology Strategy
-- Systems Integration
-- Compliance Automation
+- AI Consulting and Advisory — strategy, architecture, and implementation guidance for AI adoption
+- Specialist Contracting — hands-on software development and AI engineering
+- Technology Strategy — modernisation roadmaps and architecture reviews
+- Systems Integration — connecting platforms, APIs, and data across your organisation
+- Compliance Automation — automating regulatory compliance workflows with AI
+
+## Technology
+
+We build with Anthropic Claude, MCP Protocol, Claude Code, Python, React, Next.js, Docker, Cloudflare, and Railway.
 
 ## Contact
 
