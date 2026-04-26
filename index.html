@@ -58,6 +58,126 @@
       }
     }
     </script>
+
+    <!-- Product / Service catalog (JSON-LD ItemList of SoftwareApplication) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Instilligent product catalog",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Modular Compliance",
+            "url": "https://modularcompliance.com",
+            "description": "Compliance management platform for NZ businesses covering 8 NZ legislation areas (HSWA, AML/CFT, Privacy Act 2020, Employment Relations, Environmental, Building & Construction, Consumer Protection, Body Corporate). From NZD 199/month.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "offers": {"@type": "Offer", "priceCurrency": "NZD", "price": "199", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "NZD", "unitText": "month"}},
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "BossBoard",
+            "url": "https://bossboard.instilligent.com",
+            "description": "Mobile-first compliance and business management app for NZ tradespeople — AI-powered SWMS generation, invoicing, quotes, job logging, team management. From NZD 4.99/week.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "iOS, Android, Web",
+            "offers": {"@type": "Offer", "priceCurrency": "NZD", "price": "4.99", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "4.99", "priceCurrency": "NZD", "unitText": "week"}},
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Mastering MOSS",
+            "url": "https://mastering-moss-production.up.railway.app",
+            "description": "Maritime Operator Safety System (MOSS) for NZ commercial maritime — vessel + crew registry, MTOP/MTOC document builder, digital compliance checklists. NZD 29/79/149 monthly tiers.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web, PWA",
+            "offers": [
+              {"@type": "Offer", "name": "Skipper", "priceCurrency": "NZD", "price": "29"},
+              {"@type": "Offer", "name": "Operator", "priceCurrency": "NZD", "price": "79"},
+              {"@type": "Offer", "name": "Fleet", "priceCurrency": "NZD", "price": "149"}
+            ],
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "CodeHumanist",
+            "url": "https://codehumanist.com",
+            "description": "Read-only codebase comprehension platform for human stakeholders — understand AI-generated codebases (architecture, data flows, use cases) without touching code. Currently waitlist.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Web",
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Instilligent Courses",
+            "url": "https://courses.instilligent.com",
+            "description": "AI practice exams and structured courses for NZ professionals.",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web",
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "ProofOnce",
+            "url": "https://proofonce.com",
+            "description": "Document and identity verification platform — verify once, reuse across consumers. Pre-launch.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "R3 Fleet Management",
+            "url": "https://r3-fleet-frontend-production.up.railway.app",
+            "description": "Blockchain-agnostic fleet management with AI-powered optimization, real-time tracking, dispatch operations, customer booking. Phase 4: AI Governance.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "provider": {"@type": "Organization", "name": "Instilligent Limited"}
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Website + SearchAction so search engines / AI agents can express the site search shape -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Instilligent",
+      "url": "https://instilligent.com",
+      "publisher": {"@type": "Organization", "name": "Instilligent Limited"}
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
