@@ -1,12 +1,44 @@
 # instilligent.com robots.txt
+# Policy: allow classical search + AI retrieval bots (we want our products
+# cited in AI answers); block AI training crawlers.
+#
+# 2026-04-26: rewritten — previous version blocked ClaudeBot and other
+# retrieval bots, which prevented Instilligent from being cited in AI
+# answers. Training-blocks retained, retrieval bots now explicitly allowed.
+
 User-agent: *
 Allow: /
 
-# Block AI training crawlers (not search)
-User-agent: GPTBot
-Disallow: /
+# Cloudflare Content Signals (search=OK, retrieval=OK, training=blocked)
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 
-User-agent: CCBot
+# AI retrieval bots (live answer surfacing — ALLOWED so we get cited)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI training crawlers (BLOCKED — express reservation under EU CDSM 2019/790)
+User-agent: GPTBot
 Disallow: /
 
 User-agent: Google-Extended
@@ -15,10 +47,10 @@ Disallow: /
 User-agent: Applebot-Extended
 Disallow: /
 
-User-agent: Bytespider
+User-agent: CCBot
 Disallow: /
 
-User-agent: ClaudeBot
+User-agent: Bytespider
 Disallow: /
 
 User-agent: Amazonbot
@@ -27,7 +59,17 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-Sitemap: https://instilligent.com/sitemap.xml
+User-agent: Meta-ExternalFetcher
+Disallow: /
 
-# AI Agent Discovery
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+Sitemap: https://instilligent.com/sitemap.xml
 AI-Content: https://instilligent.com/llms.txt
