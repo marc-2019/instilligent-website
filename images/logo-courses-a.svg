@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="ig-logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9333EA"/>
+      <stop offset="100%" stop-color="#6B21A8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#ig-logo)"/>
+  <circle cx="100" cy="52" r="18" fill="white"/>
+  <rect x="85" y="78" width="30" height="82" rx="8" fill="white"/>
+  
+  <rect x="110" y="145" width="80" height="35" rx="10" fill="white" stroke="#6B21A8" stroke-width="2"/>
+  <text x="150" y="168" font-family="sans-serif" font-size="14" font-weight="bold" fill="#6B21A8" text-anchor="middle">COURSES</text>
+</svg>
