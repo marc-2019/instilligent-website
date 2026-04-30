@@ -30,20 +30,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Contact form handling - opens user's email client with pre-filled details
+    // Contact form handling — POSTs to /api/contact (Cloudflare Pages Function → Resend).
+    // Replaces the previous mailto: handler that failed silently when the user
+    // had no default mail client configured (very common in 2026 with web mail).
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = contactForm.querySelector('#name').value;
             const email = contactForm.querySelector('#email').value;
-            const interest = contactForm.querySelector('#interest').value;
+            const interestEl = contactForm.querySelector('#interest');
+            const interest = interestEl ? interestEl.value : '';
             const message = contactForm.querySelector('#message').value;
 
-            const subject = encodeURIComponent(`Website Enquiry: ${interest || 'General'}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\n\n${message}`);
+            const submitBtn = contactForm.querySelector('button[type="submit"]') || contactForm.querySelector('input[type="submit"]');
+            const originalText = submitBtn ? (submitBtn.textContent || submitBtn.value) : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                if (submitBtn.tagName === 'BUTTON') submitBtn.textContent = 'Sending…';
+                else submitBtn.value = 'Sending…';
+            }
 
-            window.location.href = `mailto:marc@instilligent.com?subject=${subject}&body=${body}`;
+            try {
+                const resp = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, interest, message }),
+                });
+                if (resp.ok) {
+                    contactForm.reset();
+                    alert("Thanks — your message has been sent. We'll be in touch.");
+                } else {
+                    const data = await resp.json().catch(() => ({}));
+                    alert(
+                        "Sorry, that didn't go through. Please email marc@instilligent.com directly.\n\n(" +
+                        (data.error || resp.status) + ')'
+                    );
+                }
+            } catch (err) {
+                alert('Network error. Please email marc@instilligent.com directly.');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    if (submitBtn.tagName === 'BUTTON') submitBtn.textContent = originalText;
+                    else submitBtn.value = originalText;
+                }
+            }
         });
     }
 
