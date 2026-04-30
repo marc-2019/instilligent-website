@@ -12,7 +12,7 @@ We build production-grade AI software that solves real business problems, and we
 
 - [Modular Compliance](https://modularcompliance.com) — In development. Tooling that links New Zealand legislation to the controls and tasks inside a business. Public marketing copy was withdrawn 2026-04-30 because some claims overstated current capability.
 - [BossBoard](https://bossboard.instilligent.com) — Mobile-first compliance and business management app for NZ tradespeople. AI-powered SWMS generation, invoicing, quotes, job logging, team management, and photo documentation. From NZD 4.99/week.
-- [Mastering MOSS](https://mastering-moss-production.up.railway.app) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month.
+- [Mastering MOSS](https://masteringmoss.co.nz) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month.
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.
 - [CodeHumanist](https://codehumanist.com) — Read-only codebase comprehension platform for human stakeholders. Understand AI-generated codebases — architecture, data flows, use cases — without touching code. Currently waitlist.
 - [ProofOnce](https://proofonce.com) — Document and identity verification platform. Verify once, reuse across consumers. Pre-launch.

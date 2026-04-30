@@ -94,7 +94,7 @@
       "evidence_references": [
         "~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 audited claims IMPLEMENTED — voyage/photo/sea-time moved to Roadmap by Mastering-MOSS#1)",
         "Mastering-Moss/marketing-truths.json (per-product registry)",
-        "https://mastering-moss-production.up.railway.app (live prod deployment)"
+        "https://masteringmoss.co.nz (live prod deployment, branded domain active 2026-05-01)"
       ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
@@ -131,16 +131,9 @@
     "_note": "Cross-portfolio roadmap tracker. Each entry is a feature claim that's currently roadmapped (NOT yet shipped) — every gap that closes here unlocks a new product claim that can move from ROADMAP → IMPLEMENTED in the relevant product's marketing-truths.json. Filed 2026-04-30 to give the next 24-48h of build work explicit targets.",
     "moss": {
       "product": "Mastering MOSS",
-      "live_at": "https://mastering-moss-production.up.railway.app",
-      "branded_domain_pending": "masteringmoss.co.nz (registered, DNS pointer pending)",
+      "live_at": "https://masteringmoss.co.nz",
+      "branded_domain_status": "active 2026-05-01 (Cloudflare DNS + Railway custom domain + Let's Encrypt cert)",
       "build_gaps": [
-        {
-          "id": "moss.gap.dns-pointer",
-          "title": "Set DNS pointer for masteringmoss.co.nz → Railway",
-          "priority": "P1 — unlocks branded URL on portfolio cards + JSON-LD",
-          "effort": "30 min",
-          "owner": "marc"
-        },
         {
           "id": "moss.gap.photo-evidence",
           "title": "Photo evidence + signoff on checklists",
