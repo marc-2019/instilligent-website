@@ -23,7 +23,7 @@ We build production-grade AI software that solves real business problems, and we
 - Specialist Contracting — hands-on software development and AI engineering
 - Technology Strategy — modernisation roadmaps and architecture reviews
 - Systems Integration — connecting platforms, APIs, and data across your organisation
-- Compliance Automation — automating regulatory compliance workflows with AI
+- Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)
 
 ## Technology
 

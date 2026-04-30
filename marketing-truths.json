@@ -1,0 +1,121 @@
+{
+  "$schema": "https://instilligent.com/schemas/marketing-truths.v1.json",
+  "product_name": "Instilligent.com (parent brand site + courses)",
+  "product_status": "live",
+  "last_full_audit_date": "2026-04-30",
+  "last_full_audit_by": "claude+marc",
+  "audit_doc": "~/cf-research/marketing-audits/instilligent-com-2026-04-30.md",
+  "cf_directive": "customer-facing-copy-requires-product-claim-audit",
+  "_note": "First marketing-truths.json in the portfolio. Schema is provisional and will be formalised when Stage 3 (CF enforcement layer) ships. Each entry maps a public product claim to evidence — file:line of code OR pointer to per-product audit doc OR signed-agreement reference. Verdicts: IMPLEMENTED / PARTIAL / STUB / ABSENT. ABSENT or STUB = claim must be DROPPED unless a CF task to build is committed and dated.",
+  "product_claims": [
+    {
+      "id": "instilligent.positioning.hero",
+      "claim": "Building practical AI tools for New Zealand businesses.",
+      "surfaces": ["pages/about.html#L364"],
+      "evidence_references": ["See portfolio cards below — multiple shipped products targeting NZ businesses"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc"
+    },
+    {
+      "id": "portfolio.modular-compliance.status",
+      "claim": "Modular Compliance — In development",
+      "surfaces": ["pages/about.html#L477", "index.html#L188", "index.html#L317", "llms.txt#L13"],
+      "evidence_references": ["~/cf-research/marketing-audits/modular-compliance-2026-04-30.md"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "notes": "Slight underclaim — MC is shipped to prod with paying trial signups. 'In development' is the safe direction; revisit after MC's own positioning v2 rewrite ships."
+    },
+    {
+      "id": "portfolio.codehumanist.status",
+      "claim": "CodeHumanist — Waitlist (early access)",
+      "surfaces": ["pages/about.html#L483", "index.html#L121 (JSON-LD)", "index.html#L338"],
+      "evidence_references": ["~/cf-research/marketing-audits/codehumanist-2026-04-30.md", "https://codehumanist.com (own site says waitlist)"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "previous_overclaim": "Was labelled 'Live'; recalled 2026-04-30 because product is pre-launch waitlist."
+    },
+    {
+      "id": "portfolio.proofonce.status",
+      "claim": "ProofOnce — Coming Soon (pre-launch)",
+      "surfaces": ["pages/about.html#L491", "index.html#L147 (JSON-LD)", "index.html#L344"],
+      "evidence_references": ["~/cf-research/marketing-audits/proofonce-2026-04-30.md", "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"],
+      "verdict": "ABSENT",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "previous_overclaim": "Was labelled 'Live' + described as a current 'Document and identity verification platform' in present tense; recalled 2026-04-30 because no backend exists. Description rewritten to future tense."
+    },
+    {
+      "id": "portfolio.ai-consulting.status",
+      "claim": "AI Consulting & Delivery — Contact Us / At Capacity",
+      "surfaces": ["pages/about.html#L499", "index.html#L326"],
+      "evidence_references": ["Marc personally delivers consulting. At-capacity claim is truthful — Marc + Kevin both fully engaged 2026-04-30."],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "previous_overclaim": "Was labelled 'Available Now'; reframed 2026-04-30 to truthful 'Contact Us / at capacity' framing."
+    },
+    {
+      "id": "courses.cca-f.framing",
+      "claim": "An independent Claude Foundations practice exam — Instilligent's own preparation material, not an Anthropic-issued credential. Available globally.",
+      "surfaces": ["index.html#L349"],
+      "evidence_references": ["Anthropic-cleanup commit ae16bb1 — Instilligent is NOT an Anthropic Partner. The CCA-F naming was previously framed as if Anthropic-issued."],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "previous_overclaim": "Was 'Claude Certified Architect — Foundations (CCA-F) Practice Exams, with international learners across multiple countries'. Recalled 2026-04-30: CCA-F naming risk + unverifiable learner-geography claim."
+    },
+    {
+      "id": "courses.international-learners",
+      "claim_dropped_2026_04_30": "international learners across multiple countries",
+      "reason": "Unverifiable. No backend data source for learner geography. Replaced with 'Available globally' (truthful — anyone can buy).",
+      "verdict": "ABSENT"
+    },
+    {
+      "id": "portfolio.bossboard.status",
+      "claim": "BossBoard — bossboard.instilligent.com (live)",
+      "surfaces": ["index.html#L332", "llms.txt#L14"],
+      "evidence_references": ["~/cf-research/marketing-audits/bossboard-2026-04-30.md (31 of 37 claims IMPLEMENTED)", "https://github.com/marc-2019/trademate-nz/pull/2 (2026-04-30 Team-tier feature recall)"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc"
+    },
+    {
+      "id": "portfolio.moss.status",
+      "claim": "Mastering MOSS — Maritime Operator Safety System for NZ commercial maritime",
+      "surfaces": ["index.html#L101 (JSON-LD)", "llms.txt#L15"],
+      "evidence_references": ["~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 claims IMPLEMENTED)"],
+      "verdict": "PARTIAL",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "notes": "MOSS llms.txt has separate overclaims (voyage planning STUB, photo evidence ABSENT, sea-time logs ABSENT) being recalled in a separate PR on the Mastering-Moss repo. Not visible in instilligent.com text but worth tracking."
+    },
+    {
+      "id": "services.compliance-tooling",
+      "claim": "Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)",
+      "surfaces": ["llms.txt#L26"],
+      "evidence_references": ["~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-04-30",
+      "owner": "marc",
+      "previous_overclaim": "Was 'Compliance Automation — automating regulatory compliance workflows with AI' which overstated automation depth. Recalled 2026-04-30 to match MC positioning v2."
+    },
+    {
+      "id": "anthropic.partner-status",
+      "claim_NOT_made": "Anthropic Partner / Microsoft Partner / AWS Partner / certified credentials",
+      "verdict": "ABSENT",
+      "evidence_references": ["Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"],
+      "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md"
+    }
+  ],
+  "disclaimers_required": [
+    "CCA-F: Instilligent's own practice exam, not an Anthropic-issued credential.",
+    "Modular Compliance: tooling maps legislation to obligations, frameworks, controls and tasks — does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
+  ],
+  "open_items": [
+    "Contact form: currently mailto:-based, fragile UX. PR B (separate) will add Cloudflare Pages Function → Resend backend.",
+    "Stage 3 enforcement: pre-commit hook + linter + drift cron — pending."
+  ]
+}
