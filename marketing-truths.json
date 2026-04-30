@@ -85,12 +85,21 @@
     {
       "id": "portfolio.moss.status",
       "claim": "Mastering MOSS — Maritime Operator Safety System for NZ commercial maritime",
-      "surfaces": ["index.html#L101 (JSON-LD)", "llms.txt#L15"],
-      "evidence_references": ["~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 claims IMPLEMENTED)"],
-      "verdict": "PARTIAL",
+      "surfaces": [
+        "index.html#L101 (JSON-LD)",
+        "index.html#L334 (homepage product card, added 2026-04-30)",
+        "pages/about.html#L488 (about-page portfolio card, added 2026-04-30)",
+        "llms.txt#L15"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 audited claims IMPLEMENTED — voyage/photo/sea-time moved to Roadmap by Mastering-MOSS#1)",
+        "Mastering-Moss/marketing-truths.json (per-product registry)",
+        "https://mastering-moss-production.up.railway.app (live prod deployment)"
+      ],
+      "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
-      "notes": "MOSS llms.txt has separate overclaims (voyage planning STUB, photo evidence ABSENT, sea-time logs ABSENT) being recalled in a separate PR on the Mastering-Moss repo. Not visible in instilligent.com text but worth tracking."
+      "previous_overclaim": "Was marked PARTIAL because the product was on Railway prod + in the JSON-LD but missing from visible portfolio cards. Added cards 2026-04-30 with truthful copy mapped 1:1 to MOSS code (MTOP/MTOC builder, vessel + crew registry, checklists, maintenance, safety equipment, hazards, emergency, PWA, Stripe billing). See portfolio_gaps below for tracked roadmap items."
     },
     {
       "id": "services.compliance-tooling",
@@ -115,7 +124,144 @@
     "Modular Compliance: tooling maps legislation to obligations, frameworks, controls and tasks — does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
   ],
   "open_items": [
-    "Contact form: currently mailto:-based, fragile UX. PR B (separate) will add Cloudflare Pages Function → Resend backend.",
-    "Stage 3 enforcement: pre-commit hook + linter + drift cron — pending."
-  ]
+    "Contact form: shipped Cloudflare Pages Function → Resend in instilligent-website#3 (Resend key plumbed via wrangler 2026-04-30; live once PR merges and Pages redeploys).",
+    "Stage 3 enforcement: shipped 2026-04-30 — pre-commit hook + linter + git template-dir installed across all 6 portfolio repos. Drift cron (quarterly re-audit) still pending — single CF task."
+  ],
+  "portfolio_gaps": {
+    "_note": "Cross-portfolio roadmap tracker. Each entry is a feature claim that's currently roadmapped (NOT yet shipped) — every gap that closes here unlocks a new product claim that can move from ROADMAP → IMPLEMENTED in the relevant product's marketing-truths.json. Filed 2026-04-30 to give the next 24-48h of build work explicit targets.",
+    "moss": {
+      "product": "Mastering MOSS",
+      "live_at": "https://mastering-moss-production.up.railway.app",
+      "branded_domain_pending": "masteringmoss.co.nz (registered, DNS pointer pending)",
+      "build_gaps": [
+        {
+          "id": "moss.gap.dns-pointer",
+          "title": "Set DNS pointer for masteringmoss.co.nz → Railway",
+          "priority": "P1 — unlocks branded URL on portfolio cards + JSON-LD",
+          "effort": "30 min",
+          "owner": "marc"
+        },
+        {
+          "id": "moss.gap.photo-evidence",
+          "title": "Photo evidence + signoff on checklists",
+          "priority": "P2",
+          "effort": "1-2 days (photo storage + checklist UI + sign-off persistence)",
+          "owner": "marc",
+          "notes": "Currently advertised as ROADMAP in MOSS llms.txt + marketing-truths.json. Once shipped, flip to IMPLEMENTED in both registries."
+        },
+        {
+          "id": "moss.gap.sea-time-logs",
+          "title": "Sea-time logs for crew",
+          "priority": "P2",
+          "effort": "1 day (StaffSeaTimeLog entity + voyage-day tracking + UI)",
+          "owner": "marc"
+        },
+        {
+          "id": "moss.gap.voyage-planning",
+          "title": "Voyage planning + records (persistence on Form4A006)",
+          "priority": "P2",
+          "effort": "0.5-1 day (extend Form4A006 entity, wire UI form persistence)",
+          "owner": "marc"
+        }
+      ]
+    },
+    "modular_compliance": {
+      "product": "Modular Compliance",
+      "live_at": "https://modularcompliance.com",
+      "build_gaps": [
+        {
+          "id": "mc.gap.notifier",
+          "title": "Due-date alerts / notifications (email + in-app)",
+          "priority": "P1 — currently ROADMAP, was previously over-claimed in JSON-LD featureList; truthful copy hides the feature until built",
+          "effort": "1-2 days (cron job + daily query + email templates + in-app notifications + per-tenant prefs + tests + soak)",
+          "owner": "marc",
+          "notes": "Audit verdict: STUB. Once built, flip to IMPLEMENTED in MC marketing-truths.json + restore claim to JSON-LD featureList."
+        },
+        {
+          "id": "mc.gap.control-attestations",
+          "title": "First-class attestations on controls (signed off by user, immutable, queryable)",
+          "priority": "P2 — currently PARTIAL (terms acceptance + task completion approval exist, but no control attestation flow)",
+          "effort": "2-3 days (data model + UI + audit log)",
+          "owner": "marc"
+        },
+        {
+          "id": "mc.gap.additional-frameworks",
+          "title": "Native templates for ISO 27001, SOC 2, HIPC, NZISM",
+          "priority": "P3 — currently customer-buildable as custom frameworks, but truthful copy notes native templates not shipped",
+          "effort": "1-2 days per framework",
+          "owner": "marc"
+        }
+      ]
+    },
+    "bossboard": {
+      "product": "BossBoard (trademate-nz)",
+      "live_at": "https://bossboard.instilligent.com",
+      "build_gaps": [
+        {
+          "id": "bossboard.gap.cashflow-forecasting",
+          "title": "Cashflow forecasting + Xero integration",
+          "priority": "P1 — currently framed as Coming Q2 2026 in README + llms.txt",
+          "effort": "Module 2 in CLAUDE.md (Q2-Q3 2026 — multi-day)",
+          "owner": "marc"
+        },
+        {
+          "id": "bossboard.gap.visa-hiring",
+          "title": "Visa / hiring compliance module",
+          "priority": "P3 — Module 3, framed as Coming Q3-Q4 2026",
+          "effort": "Multi-day (Module 3 in CLAUDE.md)",
+          "owner": "marc"
+        },
+        {
+          "id": "bossboard.gap.team-scheduling",
+          "title": "Team scheduling + job assignment / dispatch",
+          "priority": "DROPPED — was over-claimed in Team-tier pricing, removed by trademate-nz#2. Only re-add to copy IF actually built.",
+          "effort": "TBD",
+          "owner": "marc"
+        },
+        {
+          "id": "bossboard.gap.toolbox-talks",
+          "title": "Toolbox talks (currently mentioned on instilligent.com homepage card but not verified in code)",
+          "priority": "P2 — verify or remove from copy",
+          "effort": "Investigation first; likely a few hours to either find existing impl or remove copy",
+          "owner": "marc",
+          "notes": "Flagged 2026-04-30 while adding MOSS card — sidebar finding. instilligent.com card line: 'Manage site diaries, toolbox talks, incident reports, SWMS, and subcontractor records'. Audit didn't verify toolbox talks specifically."
+        }
+      ]
+    },
+    "proofonce": {
+      "product": "ProofOnce",
+      "live_at": "https://proofonce.com (coming-soon landing page)",
+      "build_gaps": [
+        {
+          "id": "proofonce.gap.entire-product",
+          "title": "Entire product backend — document and identity verification",
+          "priority": "P? — pre-launch, no defined timeline yet",
+          "effort": "Multi-week (whole product)",
+          "owner": "marc",
+          "notes": "Site framing is honest (Coming Soon). Notify CTA is mailto: to info@instilligent.com. When real waitlist needed, replicate instilligent-website#3 Pages Function pattern."
+        }
+      ]
+    },
+    "codehumanist": {
+      "product": "CodeHumanist",
+      "live_at": "https://codehumanist.com (waitlist)",
+      "build_gaps": [
+        {
+          "id": "codehumanist.gap.security-audit",
+          "title": "Independent third-party security audit (validates 'read-only by design' trust pillars)",
+          "priority": "P1 — required before general availability per the new 'audit pending' framing",
+          "effort": "External vendor; 2-4 weeks engagement",
+          "owner": "marc"
+        },
+        {
+          "id": "codehumanist.gap.waitlist-form-backend",
+          "title": "Waitlist form backend (currently same client-side-only pattern as old ProofOnce form)",
+          "priority": "P2 — verify and either wire backend (Pages Function + Resend) or remove form",
+          "effort": "30 min - 2 hours",
+          "owner": "marc",
+          "notes": "Flagged in codehumanist-website#1 open_items. Same pattern as instilligent-website#3 contact-form Pages Function — reusable."
+        }
+      ]
+    }
+  }
 }
