@@ -220,11 +220,11 @@
         },
         {
           "id": "bossboard.gap.toolbox-talks",
-          "title": "Toolbox talks (currently mentioned on instilligent.com homepage card but not verified in code)",
-          "priority": "P2 — verify or remove from copy",
-          "effort": "Investigation first; likely a few hours to either find existing impl or remove copy",
+          "title": "Toolbox talks (was mentioned on instilligent.com homepage card)",
+          "priority": "RESOLVED 2026-04-30",
+          "effort": "n/a",
           "owner": "marc",
-          "notes": "Flagged 2026-04-30 while adding MOSS card — sidebar finding. instilligent.com card line: 'Manage site diaries, toolbox talks, incident reports, SWMS, and subcontractor records'. Audit didn't verify toolbox talks specifically."
+          "notes": "Stage 2 BossBoard agent confirmed: toolbox talks is NOT a feature in code — only a form *field* inside SWMS templates (swms-electrician.json). Resolution: REMOVED FROM COPY (this PR). instilligent.com#L331 BossBoard card no longer mentions toolbox talks. CF task mtr-2026-04-30-iw-toolbox-removal closes with this PR."
         }
       ]
     },
