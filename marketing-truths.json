@@ -83,6 +83,57 @@
       "owner": "marc"
     },
     {
+      "id": "portfolio.bossboard.pricing-visible",
+      "claim": "Free during beta · Paid tiers from NZ$4.99/week at launch",
+      "surfaces": ["index.html#L332"],
+      "code_references": ["index.html:92 (JSON-LD Offer priceCurrency=NZD price=4.99 unitText=week — already shipped; this entry adds visible HTML to match)"],
+      "evidence_references": [
+        "https://bossboard.instilligent.com/ — live meta description: 'Run your trade business like a boss... From $4.99/week.' (verified 2026-05-12)",
+        "https://bossboard.instilligent.com/ — live landing content contains both 'Free during beta' and '$4.99/week' (verified 2026-05-12)",
+        "Audit ae730cac (2026-05-12) — surfaced the 'JSON-LD had pricing, visible HTML did not' gap"
+      ],
+      "verdict": "IMPLEMENTED",
+      "decision": "keep",
+      "last_verified": "2026-05-12",
+      "owner": "marc",
+      "notes": "FTA s9/s12A/s13/s19 SAFE — matches BB live landing page beta-framing + JSON-LD $4.99/wk. Stripe NZ billing is not live yet; the 'at launch' qualifier prevents bait-advertising (s12A) — current paid behaviour is consistent with 'free during beta'. No partner / certification overclaim. Adds visible HTML pricing to match the JSON-LD that was already shipped — closes the visible-pricing gap surfaced by audit ae730cac."
+    },
+    {
+      "id": "portfolio.moss.pricing-visible",
+      "claim": "From NZ$29/month · tiered by fleet size",
+      "surfaces": ["index.html#L339"],
+      "code_references": [
+        "index.html:107-109 (JSON-LD Offers Skipper NZD 29, Operator NZD 79, Fleet NZD 149 — already shipped; this entry adds visible HTML to match)",
+        "/home/marc/projects/Mastering-Moss/src/Instilligent.Moss.Web/Views/Billing/Index.cshtml"
+      ],
+      "evidence_references": [
+        "/home/marc/projects/Mastering-Moss/marketing-truths.json#moss.pricing — 'Skipper NZD 29/mo · Operator NZD 79/mo · Fleet NZD 149/mo · 14-day free trial' (per-product source of truth)",
+        "https://mastering-moss-production.up.railway.app/ (live prod; pricing page behind login)",
+        "Audit ae730cac (2026-05-12)"
+      ],
+      "verdict": "IMPLEMENTED",
+      "decision": "keep",
+      "last_verified": "2026-05-12",
+      "owner": "marc",
+      "notes": "FTA s9/s12A/s13/s19 SAFE — 'From NZ$29/month' is truthful entry-price (Skipper tier in MOSS per-product registry). 'Tiered by fleet size' is accurate descriptor of the 3-tier Skipper/Operator/Fleet structure. Matches JSON-LD Offers in same file. No partner/certification overclaim."
+    },
+    {
+      "id": "portfolio.courses.pricing-visible",
+      "claim": "NZ$25 · CCA-F Practice Exams · 90-day access",
+      "surfaces": ["index.html#L358"],
+      "evidence_references": [
+        "https://courses.instilligent.com — EzyCourse-hosted storefront (live; price listed on enrolment page)",
+        "Existing claim courses.cca-f.framing (verdict IMPLEMENTED 2026-04-30) covers the 'Instilligent's own practice exam, not Anthropic-issued' framing — this entry adds the visible price",
+        "Marc attested 2026-05-12: NZ$25 / 90-day access is the live EzyCourse price",
+        "Audit ae730cac (2026-05-12)"
+      ],
+      "verdict": "IMPLEMENTED",
+      "decision": "keep",
+      "last_verified": "2026-05-12",
+      "owner": "marc",
+      "notes": "FTA s9/s12A/s13/s19 SAFE — NZ$25 / 90-day access is the live EzyCourse sale price (Marc-attested). CCA-F framing inherits from existing claim courses.cca-f.framing (Instilligent's own practice exam, not Anthropic-issued) — disclaimer already lives in disclaimers_required[]. No partner / Anthropic-credential overclaim. Adds visible HTML price next to the existing 'independent of Anthropic' framing."
+    },
+    {
       "id": "portfolio.moss.status",
       "claim": "Mastering MOSS — Maritime Operator Safety System for NZ commercial maritime",
       "surfaces": [
