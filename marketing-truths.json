@@ -168,6 +168,16 @@
       "verdict": "ABSENT",
       "evidence_references": ["Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"],
       "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md"
+    },
+    {
+      "id": "instilligent.privacy-consent-banner",
+      "claim": "Privacy preferences notice + Google Analytics service description shown to visitors via Klaro consent banner.",
+      "surfaces": ["index.html", "pages/about.html", "pages/services.html", "pages/privacy.html"],
+      "code_references": ["js/analytics.js (window.klaroConfig.translations.en + services[0].description)"],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-05-17",
+      "owner": "marc",
+      "notes": "GA4 + Klaro v0.7.21 + Consent Mode v2 scaffold (2026-05-17). Banner copy: 'Privacy preferences. We use cookies to understand how visitors use our site. Choose your preferences below.' Service: 'Google Analytics — Anonymous analytics so we can understand which content visitors find useful on Instilligent.' Factual privacy notice; not a product claim. No partnership/credential implication."
     }
   ],
   "disclaimers_required": [
