@@ -10,7 +10,7 @@ We build production-grade AI software that solves real business problems, and we
 
 ## Products
 
-- [Modular Compliance](https://modularcompliance.com) — In development. Tooling that links New Zealand legislation to the controls and tasks inside a business. Public marketing copy was withdrawn 2026-04-30 because some claims overstated current capability.
+- [Modular Compliance](https://modularcompliance.com) — Live. NZ-built compliance register and workflow tool. Maps legislation into frameworks, controls and tasks, records who completed what and when, and stores supporting evidence — people do the compliance work, the tool keeps the record. Does not connect to operational systems, monitor transactions, screen activity, or take regulatory action.
 - [BossBoard](https://bossboard.instilligent.com) — Health & safety compliance for NZ tradespeople. Manage site diaries, incident reports, SWMS, and subcontractor records. Free during beta • Paid tiers from NZD 4.99/week at launch.
 - [Mastering MOSS](https://mastering-moss-production.up.railway.app) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month.
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.

@@ -19,13 +19,17 @@
     },
     {
       "id": "portfolio.modular-compliance.status",
-      "claim": "Modular Compliance — In development",
-      "surfaces": ["pages/about.html#L477", "index.html#L188", "index.html#L317", "llms.txt#L13"],
-      "evidence_references": ["~/cf-research/marketing-audits/modular-compliance-2026-04-30.md"],
+      "claim": "Modular Compliance — Live. NZ-built compliance register and workflow tool that maps legislation into frameworks, controls and tasks.",
+      "surfaces": ["pages/about.html#L481", "index.html#L82", "index.html#L194", "index.html#L324", "llms.txt#L13"],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md",
+        "/home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (canonical source for portfolio-card framing — line 10)"
+      ],
       "verdict": "IMPLEMENTED",
-      "last_verified": "2026-04-30",
+      "last_verified": "2026-05-19",
       "owner": "marc",
-      "notes": "Slight underclaim — MC is shipped to prod with paying trial signups. 'In development' is the safe direction; revisit after MC's own positioning v2 rewrite ships."
+      "previous_underclaim": "Was 'Modular Compliance — In development' on portfolio cards, nav dropdown, JSON-LD, and llms.txt. MC is shipped to prod with paying trial signups; underclaim resolved 2026-05-19 by aligning to MC positioning_v2.",
+      "notes": "Canonical source for portfolio-card framing is /home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (line 10). Disclaimer at disclaimers_required[] still holds: tool maps legislation to obligations/frameworks/controls/tasks — does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
     },
     {
       "id": "portfolio.codehumanist.status",
