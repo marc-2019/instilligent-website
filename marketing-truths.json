@@ -2,9 +2,10 @@
   "$schema": "https://instilligent.com/schemas/marketing-truths.v1.json",
   "product_name": "Instilligent.com (parent brand site + courses)",
   "product_status": "live",
-  "last_full_audit_date": "2026-04-30",
+  "last_full_audit_date": "2026-05-22",
   "last_full_audit_by": "claude+marc",
   "audit_doc": "~/cf-research/marketing-audits/instilligent-com-2026-04-30.md",
+  "audit_doc_courses_2026_05_22": "CF task: add explicit courses.* product_claims block to instilligent-website/marketing-truths.json (option A, Marc-approved 2026-05-22). Closes the marketing-truths guardrail gap for Instilligent Courses now that it is a governed product with its own workspace at /home/marc/projects/instilligent-courses/ and a 13-SKU roadmap at /home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md.",
   "cf_directive": "customer-facing-copy-requires-product-claim-audit",
   "_note": "First marketing-truths.json in the portfolio. Schema is provisional and will be formalised when Stage 3 (CF enforcement layer) ships. Each entry maps a public product claim to evidence — file:line of code OR pointer to per-product audit doc OR signed-agreement reference. Verdicts: IMPLEMENTED / PARTIAL / STUB / ABSENT. ABSENT or STUB = claim must be DROPPED unless a CF task to build is committed and dated.",
   "product_claims": [
@@ -183,6 +184,71 @@
       "last_verified": "2026-05-17",
       "owner": "marc",
       "notes": "GA4 + Klaro v0.7.21 + Consent Mode v2 scaffold (2026-05-17). Banner copy: 'Privacy preferences. We use cookies to understand how visitors use our site. Choose your preferences below.' Service: 'Google Analytics — Anonymous analytics so we can understand which content visitors find useful on Instilligent.' Factual privacy notice; not a product claim. No partnership/credential implication."
+    },
+    {
+      "id": "courses.product.live-status",
+      "claim": "Instilligent Courses — live at courses.instilligent.com. Currently 1 published SKU (CCA-F Practice Exams, NZ$25 / 90-day access).",
+      "surfaces": ["index.html#L349", "index.html#L358"],
+      "evidence_references": [
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md — CF project row 'instilligent-courses', active, production",
+        "Existing claim 'portfolio.courses.pricing-visible' (verdict IMPLEMENTED 2026-05-12) — canonical price source",
+        "https://courses.instilligent.com — live EzyCourse-hosted storefront"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-05-22",
+      "owner": "marc",
+      "notes": "Umbrella product entry for Instilligent Courses. Only CCA-F Practice Exams is live; the remaining 12 SKUs from the Track A / Track B roadmap are governed by id 'courses.portfolio.roadmap' (verdict ROADMAP). Pairs with existing 'courses.cca-f.framing' (independent practice exam framing) and 'portfolio.courses.pricing-visible' (visible price)."
+    },
+    {
+      "id": "courses.platform.hosting",
+      "claim": "Courses storefront is hosted on EzyCourse (third-party LMS); Instilligent does not operate its own course backend.",
+      "surfaces": ["index.html#L358"],
+      "evidence_references": [
+        "/home/marc/projects/instilligent-courses/brand/ezycourse-support-ticket-tenant-name-rename.md — EzyCourse tenant rename shipped + verified live 2026-05-21",
+        "https://courses.instilligent.com — EzyCourse tenant"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-05-22",
+      "owner": "marc",
+      "notes": "Hosting transparency: Instilligent provides the course content and brand; EzyCourse provides the LMS infrastructure (auth, payments, content delivery, video hosting). No 'we built a courses platform' claim is made anywhere in public copy. This entry exists so any future copy that frames courses as Instilligent-operated infrastructure has a governed claim to point at — and gets recalled."
+    },
+    {
+      "id": "courses.portfolio.roadmap",
+      "claim": "13 courses planned across Track A (technical/cert, paid) and Track B (vertical/cross-sell, free intro + paid deep dive); only CCA-F Practice Exams is live today.",
+      "surfaces": [],
+      "evidence_references": [
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md §2 — 'The portfolio — 13 courses across 2 tracks' (5 Track A + 8 Track B)",
+        "Same doc §6 — sequencing (Track B first per Marc 2026-05-21)",
+        "Same doc §1 — 'v2 changelog from v1: scope expanded from 5 standalone candidates to a two-track 13-course portfolio'"
+      ],
+      "verdict": "ROADMAP",
+      "last_verified": "2026-05-22",
+      "owner": "marc",
+      "notes": "Roadmap-only entry — NOT IMPLEMENTED. NONE of the 12 unbuilt SKUs may appear as 'available' / 'live' / 'buy now' / 'launching this quarter' on any customer-facing surface until per-SKU verdict flips to IMPLEMENTED. Only CCA-F Practice Exams (covered by 'courses.product.live-status' and 'portfolio.courses.pricing-visible') is currently advertised as available. This entry exists so a roadmap mention (e.g. 'more courses coming') has a governed claim to point at; advertising any specific roadmap SKU as available without flipping its per-SKU claim to IMPLEMENTED is a recall-worthy overclaim."
+    },
+    {
+      "id": "courses.cca-f.copyright-safety",
+      "claim": "CCA-F practice questions are Instilligent-authored, not derived from Anthropic exam content or competitor question banks.",
+      "surfaces": ["index.html#L349"],
+      "evidence_references": [
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md §1.2 — 'Carry no copyright risk — no Anthropic exam content, no competitor question banks, no third-party copyrighted material' (constraint applies to the live CCA-F and to all 13 roadmap SKUs)"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-05-22",
+      "owner": "marc",
+      "notes": "Pairs with existing claim 'courses.cca-f.framing' (independent practice exam framing, not Anthropic-issued). Copyright-safety is a separate axis — the framing claim addresses certification-authority overclaim; this claim addresses derivation / IP risk. Both must hold together on any CCA-F surface."
+    },
+    {
+      "id": "courses.recall_history",
+      "claim": "Cross-reference index of previously-dropped courses.* claims.",
+      "cross_ref": ["courses.international-learners"],
+      "evidence_references": [
+        "Existing entry id 'courses.international-learners' (verdict ABSENT) — 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
+      ],
+      "verdict": "INFORMATIONAL",
+      "last_verified": "2026-05-22",
+      "owner": "marc",
+      "notes": "Pointer-only entry. Added 2026-05-22 to make the courses.* recall index discoverable when reading the courses block together. Do NOT re-introduce 'international learners' or any learner-geography metric without a backend data source. See feedback memory: feedback_no_unverified_partner_claims.md and the 'anthropic.partner-status' rule above."
     }
   ],
   "disclaimers_required": [
