@@ -83,7 +83,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   const to = env.CONTACT_TO || "marc@instilligent.com";
-  const from = env.CONTACT_FROM || "Instilligent Contact <noreply@instilligent.com>";
+  const from = env.CONTACT_FROM || "Instilligent Contact <hello@instilligent.com>";
 
   const subject = `Website Enquiry: ${interest || "General"}`;
   const body =
