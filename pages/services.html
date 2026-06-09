@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Analytics + consent (Klaro + Consent Mode v2). Replace GTM_ID in /js/analytics.js. -->
+    <link rel="stylesheet" href="/js/klaro.min.css">
+    <script src="/js/analytics.js"></script>
+    <script defer src="/js/klaro-no-css.js"></script>
+
     <title>Services | Technology Consulting & Specialist Contracting | Instilligent</title>
     <meta name="description" content="Technology consulting, AI implementation, software development, and specialist contracting. Over 15 years delivering solutions across NZ, Australia, and Southeast Asia.">
 
@@ -21,6 +27,15 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ANALYTICSID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ANALYTICSID');
+</script>
 <body>
     <!-- Navigation -->
     <nav class="nav" id="navbar">
