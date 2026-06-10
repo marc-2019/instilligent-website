@@ -3,7 +3,7 @@
  * Vendor files: /js/klaro-no-css.js + /js/klaro.min.css (Klaro v0.7.21).
  */
 (function () {
-  var GTM_ID = "GTM-PLACEHOLDER";
+  var GTM_ID = "GTM-PLACEHOLDER"; // DO NOT MERGE until replaced with the real instilligent.com GTM/GA4 id
   var SITE_LABEL = "Instilligent";
 
   window.dataLayer = window.dataLayer || [];
@@ -52,9 +52,9 @@
         purposes: ["analytics"],
         cookies: [/^_ga/, /^_gid/, /^_gat/],
         onAccept:
-          "gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});",
+          "gtag('consent','update',{analytics_storage:'granted'});",
         onDecline:
-          "gtag('consent','update',{analytics_storage:'denied'});"
+          "gtag('consent','update',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});"
       }
     ],
     translations: {
