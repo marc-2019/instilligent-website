@@ -1,0 +1,12 @@
+{
+  "name": "instilligent-website",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Instilligent marketing site (Cloudflare Pages). Static, plus Pages Functions in functions/. Dev deps are test-only.",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.9"
+  }
+}
