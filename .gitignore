@@ -1,4 +1,5 @@
 .claude/
+.cf-pending-reviews/
 .DS_Store
 *.log
 node_modules/
