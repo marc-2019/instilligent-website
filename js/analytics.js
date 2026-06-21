@@ -3,7 +3,7 @@
  * Vendor files: /js/klaro-no-css.js + /js/klaro.min.css (Klaro v0.7.21).
  */
 (function () {
-  var GTM_ID = "GTM-PLACEHOLDER"; // DO NOT MERGE until replaced with the real instilligent.com GTM/GA4 id
+  var GA4_ID = "G-JCNLL09KHW"; // instilligent.com GA4 (wired 2026-06-22)
   var SITE_LABEL = "Instilligent";
 
   window.dataLayer = window.dataLayer || [];
@@ -20,16 +20,16 @@
     wait_for_update: 500
   });
 
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+  // Load GA4 directly (we provisioned a GA4 property, not a GTM container).
+  (function (d, s, i) {
     var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l !== "dataLayer" ? "&l=" + l : "";
+        j = d.createElement(s);
     j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
     f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", GTM_ID);
+  })(document, "script", GA4_ID);
+  gtag("js", new Date());
+  gtag("config", GA4_ID);
 
   window.klaroConfig = {
     version: 1,
