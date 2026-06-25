@@ -1,0 +1,15 @@
+# Dependency-vulnerability-hygiene: Dependabot keeps npm deps + GitHub Actions
+# patched and surfaces new advisories as PRs. Pairs with the secret-scan gate.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels: ["dependencies", "ci"]
