@@ -221,7 +221,7 @@
         "Same doc §6 — sequencing (Track B first per Marc 2026-05-21)",
         "Same doc §1 — 'v2 changelog from v1: scope expanded from 5 standalone candidates to a two-track 13-course portfolio'"
       ],
-      "verdict": "ROADMAP",
+      "verdict": "PLANNED",
       "last_verified": "2026-05-22",
       "owner": "marc",
       "notes": "Roadmap-only entry — NOT IMPLEMENTED. NONE of the 12 unbuilt SKUs may appear as 'available' / 'live' / 'buy now' / 'launching this quarter' on any customer-facing surface until per-SKU verdict flips to IMPLEMENTED. Only CCA-F Practice Exams (covered by 'courses.product.live-status' and 'portfolio.courses.pricing-visible') is currently advertised as available. This entry exists so a roadmap mention (e.g. 'more courses coming') has a governed claim to point at; advertising any specific roadmap SKU as available without flipping its per-SKU claim to IMPLEMENTED is a recall-worthy overclaim."
@@ -245,7 +245,7 @@
       "evidence_references": [
         "Existing entry id 'courses.international-learners' (verdict ABSENT) — 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
       ],
-      "verdict": "INFORMATIONAL",
+      "verdict": "ACCURATE",
       "last_verified": "2026-05-22",
       "owner": "marc",
       "notes": "Pointer-only entry. Added 2026-05-22 to make the courses.* recall index discoverable when reading the courses block together. Do NOT re-introduce 'international learners' or any learner-geography metric without a backend data source. See feedback memory: feedback_no_unverified_partner_claims.md and the 'anthropic.partner-status' rule above."
