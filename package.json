@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "description": "Instilligent marketing site (Cloudflare Pages). Static, plus Pages Functions in functions/. Dev deps are test-only.",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
+    "pretest": "node scripts/check-node.mjs",
     "test": "vitest run"
   },
   "devDependencies": {
