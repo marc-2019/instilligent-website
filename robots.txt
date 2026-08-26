@@ -1,10 +1,17 @@
 # instilligent.com robots.txt
-# Policy: allow classical search + AI retrieval bots (we want our products
-# cited in AI answers); block AI training crawlers.
+# Policy: classical search + AI retrieval/citation allowed; AI training blocked.
 #
-# 2026-04-26: rewritten — previous version blocked ClaudeBot and other
-# retrieval bots, which prevented Instilligent from being cited in AI
-# answers. Training-blocks retained, retrieval bots now explicitly allowed.
+# Anthropic (2026): Claude-SearchBot + Claude-User = citation/retrieval;
+# ClaudeBot = training. Do not Allow ClaudeBot if the intent is "cite, don't train".
+# Deprecated tokens Claude-Web / anthropic-ai are kept as Allow no-ops.
+#
+# 2026-04-26: unblocked retrieval after an earlier file blocked ClaudeBot.
+# 2026-08-26: ClaudeBot moved to training-block; Claude-SearchBot + Claude-User
+# added. Cloudflare may still prepend a managed Disallow for ClaudeBot — that
+# matches training-block. Origin cannot remove the prepend.
+# Marc EXTERNAL: Cloudflare dashboard → AI Crawl Control on this zone — allow
+# search/citation crawlers; keep training blocked.
+# See marketing-audits/instilligent-2026-08-26-geo-crawlers.md
 
 User-agent: *
 Allow: /
@@ -12,20 +19,17 @@ Allow: /
 # Cloudflare Content Signals (search=OK, retrieval=OK, training=blocked)
 Content-Signal: search=yes,ai-input=yes,ai-train=no
 
-# AI retrieval bots (live answer surfacing — ALLOWED so we get cited)
+# AI retrieval / citation (ALLOWED so products can be cited in answers)
 User-agent: ChatGPT-User
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Claude-SearchBot
 Allow: /
 
-User-agent: Claude-Web
-Allow: /
-
-User-agent: anthropic-ai
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot
@@ -37,7 +41,17 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# AI training crawlers (BLOCKED — express reservation under EU CDSM 2019/790)
+# Deprecated Anthropic tokens (no-op if unused)
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# AI training crawlers (BLOCKED — EU CDSM 2019/790 reservation)
+User-agent: ClaudeBot
+Disallow: /
+
 User-agent: GPTBot
 Disallow: /
 

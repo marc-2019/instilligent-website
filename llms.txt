@@ -35,4 +35,4 @@ We build with Anthropic Claude, MCP Protocol, Claude Code, Python, React, Next.j
 - Email: info@instilligent.com
 - LinkedIn: https://www.linkedin.com/company/instilligent
 - Location: New Zealand
-- NZBN: 9429051796284
+- NZBN: 9429041896853
