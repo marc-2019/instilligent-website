@@ -12,8 +12,12 @@
     {
       "id": "instilligent.positioning.hero",
       "claim": "Building practical AI tools for New Zealand businesses.",
-      "surfaces": ["pages/about.html#L364"],
-      "evidence_references": ["See portfolio cards below — multiple shipped products targeting NZ businesses"],
+      "surfaces": [
+        "pages/about.html#L364"
+      ],
+      "evidence_references": [
+        "See portfolio cards below — multiple shipped products targeting NZ businesses"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc"
@@ -41,7 +45,13 @@
     {
       "id": "portfolio.modular-compliance.status",
       "claim": "Modular Compliance — Live. NZ-built compliance register and workflow tool that maps legislation into frameworks, controls and tasks.",
-      "surfaces": ["pages/about.html#L481", "index.html#L82", "index.html#L194", "index.html#L324", "llms.txt#L13"],
+      "surfaces": [
+        "pages/about.html#L481",
+        "index.html#L82",
+        "index.html#L194",
+        "index.html#L324",
+        "llms.txt#L13"
+      ],
       "evidence_references": [
         "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md",
         "/home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (canonical source for portfolio-card framing — line 10)"
@@ -55,8 +65,15 @@
     {
       "id": "portfolio.codehumanist.status",
       "claim": "CodeHumanist — Waitlist (early access)",
-      "surfaces": ["pages/about.html#L483", "index.html#L121 (JSON-LD)", "index.html#L338"],
-      "evidence_references": ["~/cf-research/marketing-audits/codehumanist-2026-04-30.md", "https://codehumanist.com (own site says waitlist)"],
+      "surfaces": [
+        "pages/about.html#L483",
+        "index.html#L121 (JSON-LD)",
+        "index.html#L338"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/codehumanist-2026-04-30.md",
+        "https://codehumanist.com (own site says waitlist)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -65,8 +82,15 @@
     {
       "id": "portfolio.proofonce.status",
       "claim": "ProofOnce — Coming Soon (pre-launch)",
-      "surfaces": ["pages/about.html#L491", "index.html#L147 (JSON-LD)", "index.html#L344"],
-      "evidence_references": ["~/cf-research/marketing-audits/proofonce-2026-04-30.md", "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"],
+      "surfaces": [
+        "pages/about.html#L491",
+        "index.html#L147 (JSON-LD)",
+        "index.html#L344"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/proofonce-2026-04-30.md",
+        "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"
+      ],
       "verdict": "ABSENT",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -75,8 +99,13 @@
     {
       "id": "portfolio.ai-consulting.status",
       "claim": "AI Consulting & Delivery — Contact Us / At Capacity",
-      "surfaces": ["pages/about.html#L499", "index.html#L326"],
-      "evidence_references": ["Marc personally delivers consulting. At-capacity claim is truthful — Marc + Kevin both fully engaged 2026-04-30."],
+      "surfaces": [
+        "pages/about.html#L499",
+        "index.html#L326"
+      ],
+      "evidence_references": [
+        "Marc personally delivers consulting. At-capacity claim is truthful — Marc + Kevin both fully engaged 2026-04-30."
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -85,8 +114,12 @@
     {
       "id": "courses.cca-f.framing",
       "claim": "An independent Claude Foundations practice exam — Instilligent's own preparation material, not an Anthropic-issued credential. Available globally.",
-      "surfaces": ["index.html#L349"],
-      "evidence_references": ["Anthropic-cleanup commit ae16bb1 — Instilligent is NOT an Anthropic Partner. The CCA-F naming was previously framed as if Anthropic-issued."],
+      "surfaces": [
+        "index.html#L349"
+      ],
+      "evidence_references": [
+        "Anthropic-cleanup commit ae16bb1 — Instilligent is NOT an Anthropic Partner. The CCA-F naming was previously framed as if Anthropic-issued."
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -101,8 +134,14 @@
     {
       "id": "portfolio.bossboard.status",
       "claim": "BossBoard — bossboard.instilligent.com (live)",
-      "surfaces": ["index.html#L332", "llms.txt#L14"],
-      "evidence_references": ["~/cf-research/marketing-audits/bossboard-2026-04-30.md (31 of 37 claims IMPLEMENTED)", "https://github.com/marc-2019/trademate-nz/pull/2 (2026-04-30 Team-tier feature recall)"],
+      "surfaces": [
+        "index.html#L332",
+        "llms.txt#L14"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/bossboard-2026-04-30.md (31 of 37 claims IMPLEMENTED)",
+        "https://github.com/marc-2019/trademate-nz/pull/2 (2026-04-30 Team-tier feature recall)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc"
@@ -110,8 +149,13 @@
     {
       "id": "portfolio.bossboard.pricing-visible",
       "claim": "Free during beta · Paid tiers from NZ$4.99/week at launch",
-      "surfaces": ["index.html#L332", "llms.txt#L14"],
-      "code_references": ["index.html:92 (JSON-LD Offer priceCurrency=NZD price=4.99 unitText=week — already shipped; this entry adds visible HTML to match)"],
+      "surfaces": [
+        "index.html#L332",
+        "llms.txt#L14"
+      ],
+      "code_references": [
+        "index.html:92 (JSON-LD Offer priceCurrency=NZD price=4.99 unitText=week — already shipped; this entry adds visible HTML to match)"
+      ],
       "evidence_references": [
         "https://bossboard.instilligent.com/ — live meta description: 'Run your trade business like a boss... From $4.99/week.' (verified 2026-05-12)",
         "https://bossboard.instilligent.com/ — live landing content contains both 'Free during beta' and '$4.99/week' (verified 2026-05-12)",
@@ -127,14 +171,16 @@
     {
       "id": "portfolio.moss.pricing-visible",
       "claim": "From NZ$29/month · tiered by fleet size",
-      "surfaces": ["index.html#L339"],
+      "surfaces": [
+        "index.html#L339"
+      ],
       "code_references": [
         "index.html:107-109 (JSON-LD Offers Skipper NZD 29, Operator NZD 79, Fleet NZD 149 — already shipped; this entry adds visible HTML to match)",
         "/home/marc/projects/Mastering-Moss/src/Instilligent.Moss.Web/Views/Billing/Index.cshtml"
       ],
       "evidence_references": [
         "/home/marc/projects/Mastering-Moss/marketing-truths.json#moss.pricing — 'Skipper NZD 29/mo · Operator NZD 79/mo · Fleet NZD 149/mo · 14-day free trial' (per-product source of truth)",
-        "https://mastering-moss-production.up.railway.app/ (live prod; pricing page behind login)",
+        "https://masteringmoss.co.nz/ (live prod; pricing page behind login)",
         "Audit ae730cac (2026-05-12)"
       ],
       "verdict": "IMPLEMENTED",
@@ -146,7 +192,9 @@
     {
       "id": "portfolio.courses.pricing-visible",
       "claim": "NZ$25 · CCA-F Practice Exams · 90-day access",
-      "surfaces": ["index.html#L358"],
+      "surfaces": [
+        "index.html#L358"
+      ],
       "evidence_references": [
         "https://courses.instilligent.com — EzyCourse-hosted storefront (live; price listed on enrolment page)",
         "Existing claim courses.cca-f.framing (verdict IMPLEMENTED 2026-04-30) covers the 'Instilligent's own practice exam, not Anthropic-issued' framing — this entry adds the visible price",
@@ -171,18 +219,23 @@
       "evidence_references": [
         "~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 audited claims IMPLEMENTED — voyage/photo/sea-time moved to Roadmap by Mastering-MOSS#1)",
         "Mastering-Moss/marketing-truths.json (per-product registry)",
-        "https://mastering-moss-production.up.railway.app (live prod deployment)"
+        "https://masteringmoss.co.nz (live prod deployment)"
       ],
       "verdict": "IMPLEMENTED",
-      "last_verified": "2026-04-30",
+      "last_verified": "2026-08-30",
       "owner": "marc",
-      "previous_overclaim": "Was marked PARTIAL because the product was on Railway prod + in the JSON-LD but missing from visible portfolio cards. Added cards 2026-04-30 with truthful copy mapped 1:1 to MOSS code (MTOP/MTOC builder, vessel + crew registry, checklists, maintenance, safety equipment, hazards, emergency, PWA, Stripe billing). See portfolio_gaps below for tracked roadmap items."
+      "previous_overclaim": "Was marked PARTIAL because the product was on Railway prod + in the JSON-LD but missing from visible portfolio cards. Added cards 2026-04-30 with truthful copy mapped 1:1 to MOSS code (MTOP/MTOC builder, vessel + crew registry, checklists, maintenance, safety equipment, hazards, emergency, PWA, Stripe billing). See portfolio_gaps below for tracked roadmap items.",
+      "notes": "Public product URL is https://masteringmoss.co.nz (HTTP 200, 2026-08-30). Railway hostname retired from parent-site cards/JSON-LD/llms. www.masteringmoss.co.nz is still NXDOMAIN — apex only until DNS www is added."
     },
     {
       "id": "services.compliance-tooling",
       "claim": "Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)",
-      "surfaces": ["llms.txt#L26"],
-      "evidence_references": ["~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"],
+      "surfaces": [
+        "llms.txt#L26"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -192,13 +245,18 @@
       "id": "anthropic.partner-status",
       "claim_NOT_made": "Anthropic Partner / Microsoft Partner / AWS Partner / certified credentials",
       "verdict": "ABSENT",
-      "evidence_references": ["Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"],
+      "evidence_references": [
+        "Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"
+      ],
       "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md"
     },
     {
       "id": "courses.product.live-status",
       "claim": "Instilligent Courses — live at courses.instilligent.com. Currently 1 published SKU (CCA-F Practice Exams, NZ$25 / 90-day access).",
-      "surfaces": ["index.html#L349", "index.html#L358"],
+      "surfaces": [
+        "index.html#L349",
+        "index.html#L358"
+      ],
       "evidence_references": [
         "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md — CF project row 'instilligent-courses', active, production",
         "Existing claim 'portfolio.courses.pricing-visible' (verdict IMPLEMENTED 2026-05-12) — canonical price source",
@@ -212,7 +270,9 @@
     {
       "id": "courses.platform.hosting",
       "claim": "Courses storefront is hosted on EzyCourse (third-party LMS); Instilligent does not operate its own course backend.",
-      "surfaces": ["index.html#L358"],
+      "surfaces": [
+        "index.html#L358"
+      ],
       "evidence_references": [
         "/home/marc/projects/instilligent-courses/brand/ezycourse-support-ticket-tenant-name-rename.md — EzyCourse tenant rename shipped + verified live 2026-05-21",
         "https://courses.instilligent.com — EzyCourse tenant"
@@ -239,7 +299,9 @@
     {
       "id": "courses.cca-f.copyright-safety",
       "claim": "CCA-F practice questions are Instilligent-authored, not derived from Anthropic exam content or competitor question banks.",
-      "surfaces": ["index.html#L349"],
+      "surfaces": [
+        "index.html#L349"
+      ],
       "evidence_references": [
         "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md §1.2 — 'Carry no copyright risk — no Anthropic exam content, no competitor question banks, no third-party copyrighted material' (constraint applies to the live CCA-F and to all 13 roadmap SKUs)"
       ],
@@ -251,7 +313,9 @@
     {
       "id": "courses.recall_history",
       "claim": "Cross-reference index of previously-dropped courses.* claims.",
-      "cross_ref": ["courses.international-learners"],
+      "cross_ref": [
+        "courses.international-learners"
+      ],
       "evidence_references": [
         "Existing entry id 'courses.international-learners' (verdict ABSENT) — 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
       ],
@@ -273,15 +337,17 @@
     "_note": "Cross-portfolio roadmap tracker. Each entry is a feature claim that's currently roadmapped (NOT yet shipped) — every gap that closes here unlocks a new product claim that can move from ROADMAP → IMPLEMENTED in the relevant product's marketing-truths.json. Filed 2026-04-30 to give the next 24-48h of build work explicit targets.",
     "moss": {
       "product": "Mastering MOSS",
-      "live_at": "https://mastering-moss-production.up.railway.app",
-      "branded_domain_pending": "masteringmoss.co.nz (registered, DNS pointer pending)",
+      "live_at": "https://masteringmoss.co.nz",
+      "branded_domain_pending": "www.masteringmoss.co.nz NXDOMAIN (apex live)",
       "build_gaps": [
         {
           "id": "moss.gap.dns-pointer",
-          "title": "Set DNS pointer for masteringmoss.co.nz → Railway",
+          "title": "www.masteringmoss.co.nz still NXDOMAIN (apex live)",
           "priority": "P1 — unlocks branded URL on portfolio cards + JSON-LD",
           "effort": "30 min",
-          "owner": "marc"
+          "owner": "marc",
+          "status": "open-www-only",
+          "notes": "Apex masteringmoss.co.nz HTTP 200 2026-08-30. Close when Marc adds www CNAME/A in Cloudflare + Railway custom domain."
         },
         {
           "id": "moss.gap.photo-evidence",
