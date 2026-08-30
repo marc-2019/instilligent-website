@@ -1,3 +1,3 @@
 # Auto-exec land probe (not ship UI)
 
-PLACEHOLDER
+LAND_PROBE_OK
