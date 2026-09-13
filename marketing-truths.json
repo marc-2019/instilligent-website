@@ -2,41 +2,58 @@
   "$schema": "https://instilligent.com/schemas/marketing-truths.v1.json",
   "product_name": "Instilligent.com (parent brand site + courses)",
   "product_status": "live",
-  "last_full_audit_date": "2026-05-22",
+  "last_full_audit_date": "2026-07-21",
   "last_full_audit_by": "claude+marc",
   "audit_doc": "~/cf-research/marketing-audits/instilligent-com-2026-04-30.md",
   "audit_doc_courses_2026_05_22": "CF task: add explicit courses.* product_claims block to instilligent-website/marketing-truths.json (option A, Marc-approved 2026-05-22). Closes the marketing-truths guardrail gap for Instilligent Courses now that it is a governed product with its own workspace at /home/marc/projects/instilligent-courses/ and a 13-SKU roadmap at /home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md.",
   "cf_directive": "customer-facing-copy-requires-product-claim-audit",
-  "_note": "First marketing-truths.json in the portfolio. Schema is provisional and will be formalised when Stage 3 (CF enforcement layer) ships. Each entry maps a public product claim to evidence — file:line of code OR pointer to per-product audit doc OR signed-agreement reference. Verdicts: IMPLEMENTED / PARTIAL / STUB / ABSENT. ABSENT or STUB = claim must be DROPPED unless a CF task to build is committed and dated.",
+  "_note": "First marketing-truths.json in the portfolio. Schema is provisional and will be formalised when Stage 3 (CF enforcement layer) ships. Each entry maps a public product claim to evidence \u2014 file:line of code OR pointer to per-product audit doc OR signed-agreement reference. Verdicts: IMPLEMENTED / PARTIAL / STUB / ABSENT. ABSENT or STUB = claim must be DROPPED unless a CF task to build is committed and dated.",
   "product_claims": [
     {
       "id": "instilligent.positioning.hero",
-      "claim": "Building practical AI tools for New Zealand businesses.",
-      "surfaces": ["pages/about.html#L364"],
-      "evidence_references": ["See portfolio cards below — multiple shipped products targeting NZ businesses"],
+      "claim": "Practical software for regulated industries.",
+      "surfaces": [
+        "pages/about.html#L364"
+      ],
+      "evidence_references": [
+        "See portfolio cards below \u2014 multiple shipped products targeting NZ businesses"
+      ],
       "verdict": "IMPLEMENTED",
-      "last_verified": "2026-04-30",
+      "last_verified": "2026-09-13",
       "owner": "marc"
     },
     {
       "id": "portfolio.modular-compliance.status",
-      "claim": "Modular Compliance — Live. NZ-built compliance register and workflow tool that maps legislation into frameworks, controls and tasks.",
-      "surfaces": ["pages/about.html#L481", "index.html#L82", "index.html#L194", "index.html#L324", "llms.txt#L13"],
+      "claim": "Modular Compliance \u2014 Live. NZ-built compliance register and workflow tool that maps legislation into frameworks, controls and tasks.",
+      "surfaces": [
+        "pages/about.html#L481",
+        "index.html#L82",
+        "index.html#L194",
+        "index.html#L324",
+        "llms.txt#L13"
+      ],
       "evidence_references": [
         "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md",
-        "/home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (canonical source for portfolio-card framing — line 10)"
+        "/home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (canonical source for portfolio-card framing \u2014 line 10)"
       ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-05-19",
       "owner": "marc",
-      "previous_underclaim": "Was 'Modular Compliance — In development' on portfolio cards, nav dropdown, JSON-LD, and llms.txt. MC is shipped to prod with paying trial signups; underclaim resolved 2026-05-19 by aligning to MC positioning_v2.",
-      "notes": "Canonical source for portfolio-card framing is /home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (line 10). Disclaimer at disclaimers_required[] still holds: tool maps legislation to obligations/frameworks/controls/tasks — does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
+      "previous_underclaim": "Was 'Modular Compliance \u2014 In development' on portfolio cards, nav dropdown, JSON-LD, and llms.txt. MC is shipped to prod with paying trial signups; underclaim resolved 2026-05-19 by aligning to MC positioning_v2.",
+      "notes": "Canonical source for portfolio-card framing is /home/marc/projects/ModularCompliance/marketing-truths.json#positioning_v2 (line 10). Disclaimer at disclaimers_required[] still holds: tool maps legislation to obligations/frameworks/controls/tasks \u2014 does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
     },
     {
       "id": "portfolio.codehumanist.status",
-      "claim": "CodeHumanist — Waitlist (early access)",
-      "surfaces": ["pages/about.html#L483", "index.html#L121 (JSON-LD)", "index.html#L338"],
-      "evidence_references": ["~/cf-research/marketing-audits/codehumanist-2026-04-30.md", "https://codehumanist.com (own site says waitlist)"],
+      "claim": "CodeHumanist \u2014 Waitlist (early access)",
+      "surfaces": [
+        "pages/about.html#L483",
+        "index.html#L121 (JSON-LD)",
+        "index.html#L338"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/codehumanist-2026-04-30.md",
+        "https://codehumanist.com (own site says waitlist)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -44,9 +61,16 @@
     },
     {
       "id": "portfolio.proofonce.status",
-      "claim": "ProofOnce — Coming Soon (pre-launch)",
-      "surfaces": ["pages/about.html#L491", "index.html#L147 (JSON-LD)", "index.html#L344"],
-      "evidence_references": ["~/cf-research/marketing-audits/proofonce-2026-04-30.md", "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"],
+      "claim": "ProofOnce \u2014 Coming Soon (pre-launch)",
+      "surfaces": [
+        "pages/about.html#L491",
+        "index.html#L147 (JSON-LD)",
+        "index.html#L344"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/proofonce-2026-04-30.md",
+        "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"
+      ],
       "verdict": "ABSENT",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -54,9 +78,14 @@
     },
     {
       "id": "portfolio.ai-consulting.status",
-      "claim": "AI Consulting & Delivery — Contact Us / At Capacity",
-      "surfaces": ["pages/about.html#L499", "index.html#L326"],
-      "evidence_references": ["Marc personally delivers consulting. At-capacity claim is truthful — Marc + Kevin both fully engaged 2026-04-30."],
+      "claim": "AI Consulting & Delivery \u2014 Contact Us / At Capacity",
+      "surfaces": [
+        "pages/about.html#L499",
+        "index.html#L326"
+      ],
+      "evidence_references": [
+        "Marc personally delivers consulting. At-capacity claim is truthful \u2014 Marc + Kevin both fully engaged 2026-04-30."
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
@@ -64,56 +93,73 @@
     },
     {
       "id": "courses.cca-f.framing",
-      "claim": "An independent Claude Foundations practice exam — Instilligent's own preparation material, not an Anthropic-issued credential. Available globally.",
-      "surfaces": ["index.html#L349"],
-      "evidence_references": ["Anthropic-cleanup commit ae16bb1 — Instilligent is NOT an Anthropic Partner. The CCA-F naming was previously framed as if Anthropic-issued."],
+      "claim": "An independent Claude Foundations practice exam \u2014 Instilligent's own preparation material, not an Anthropic-issued credential. Available globally.",
+      "surfaces": [
+        "index.html#L349"
+      ],
+      "evidence_references": [
+        "Anthropic-cleanup commit ae16bb1 \u2014 Instilligent is NOT an Anthropic Partner. The CCA-F naming was previously framed as if Anthropic-issued."
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
-      "previous_overclaim": "Was 'Claude Certified Architect — Foundations (CCA-F) Practice Exams, with international learners across multiple countries'. Recalled 2026-04-30: CCA-F naming risk + unverifiable learner-geography claim."
+      "previous_overclaim": "Was 'Claude Certified Architect \u2014 Foundations (CCA-F) Practice Exams, with international learners across multiple countries'. Recalled 2026-04-30: CCA-F naming risk + unverifiable learner-geography claim."
     },
     {
       "id": "courses.international-learners",
       "claim_dropped_2026_04_30": "international learners across multiple countries",
-      "reason": "Unverifiable. No backend data source for learner geography. Replaced with 'Available globally' (truthful — anyone can buy).",
+      "reason": "Unverifiable. No backend data source for learner geography. Replaced with 'Available globally' (truthful \u2014 anyone can buy).",
       "verdict": "ABSENT"
     },
     {
       "id": "portfolio.bossboard.status",
-      "claim": "BossBoard — bossboard.instilligent.com (live)",
-      "surfaces": ["index.html#L332", "llms.txt#L14"],
-      "evidence_references": ["~/cf-research/marketing-audits/bossboard-2026-04-30.md (31 of 37 claims IMPLEMENTED)", "https://github.com/marc-2019/trademate-nz/pull/2 (2026-04-30 Team-tier feature recall)"],
+      "claim": "BossBoard \u2014 bossboard.instilligent.com (live)",
+      "surfaces": [
+        "index.html#L332",
+        "llms.txt#L14"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/bossboard-2026-04-30.md (31 of 37 claims IMPLEMENTED)",
+        "https://github.com/marc-2019/trademate-nz/pull/2 (2026-04-30 Team-tier feature recall)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc"
     },
     {
       "id": "portfolio.bossboard.pricing-visible",
-      "claim": "Free during beta · Paid tiers from NZ$4.99/week at launch",
-      "surfaces": ["index.html#L332", "llms.txt#L14"],
-      "code_references": ["index.html:92 (JSON-LD Offer priceCurrency=NZD price=4.99 unitText=week — already shipped; this entry adds visible HTML to match)"],
+      "claim": "Free during beta \u00b7 Paid tiers from NZ$4.99/week at launch",
+      "surfaces": [
+        "index.html#L332",
+        "llms.txt#L14"
+      ],
+      "code_references": [
+        "index.html:92 (JSON-LD Offer priceCurrency=NZD price=4.99 unitText=week \u2014 already shipped; this entry adds visible HTML to match)"
+      ],
       "evidence_references": [
-        "https://bossboard.instilligent.com/ — live meta description: 'Run your trade business like a boss... From $4.99/week.' (verified 2026-05-12)",
-        "https://bossboard.instilligent.com/ — live landing content contains both 'Free during beta' and '$4.99/week' (verified 2026-05-12)",
-        "Audit ae730cac (2026-05-12) — surfaced the 'JSON-LD had pricing, visible HTML did not' gap",
-        "llms.txt#L14 reconciled to the same beta-framing in commit 81511be (2026-05-18) — surface added 2026-05-19"
+        "https://bossboard.instilligent.com/ \u2014 live meta description: 'Run your trade business like a boss... From $4.99/week.' (verified 2026-05-12)",
+        "https://bossboard.instilligent.com/ \u2014 live landing content contains both 'Free during beta' and '$4.99/week' (verified 2026-05-12)",
+        "Audit ae730cac (2026-05-12) \u2014 surfaced the 'JSON-LD had pricing, visible HTML did not' gap",
+        "llms.txt#L14 reconciled to the same beta-framing in commit 81511be (2026-05-18) \u2014 surface added 2026-05-19"
       ],
       "verdict": "IMPLEMENTED",
       "decision": "keep",
       "last_verified": "2026-05-19",
       "owner": "marc",
-      "notes": "FTA s9/s12A/s13/s19 SAFE — matches BB live landing page beta-framing + JSON-LD $4.99/wk. Stripe NZ billing is not live yet; the 'at launch' qualifier prevents bait-advertising (s12A) — current paid behaviour is consistent with 'free during beta'. No partner / certification overclaim. Adds visible HTML pricing to match the JSON-LD that was already shipped — closes the visible-pricing gap surfaced by audit ae730cac."
+      "notes": "FTA s9/s12A/s13/s19 SAFE \u2014 matches BB live landing page beta-framing + JSON-LD $4.99/wk. Stripe NZ billing is not live yet; the 'at launch' qualifier prevents bait-advertising (s12A) \u2014 current paid behaviour is consistent with 'free during beta'. No partner / certification overclaim. Adds visible HTML pricing to match the JSON-LD that was already shipped \u2014 closes the visible-pricing gap surfaced by audit ae730cac."
     },
     {
       "id": "portfolio.moss.pricing-visible",
-      "claim": "From NZ$29/month · tiered by fleet size",
-      "surfaces": ["index.html#L339"],
+      "claim": "From NZ$29/month \u00b7 tiered by fleet size",
+      "surfaces": [
+        "index.html#L339"
+      ],
       "code_references": [
-        "index.html:107-109 (JSON-LD Offers Skipper NZD 29, Operator NZD 79, Fleet NZD 149 — already shipped; this entry adds visible HTML to match)",
+        "index.html:107-109 (JSON-LD Offers Skipper NZD 29, Operator NZD 79, Fleet NZD 149 \u2014 already shipped; this entry adds visible HTML to match)",
         "/home/marc/projects/Mastering-Moss/src/Instilligent.Moss.Web/Views/Billing/Index.cshtml"
       ],
       "evidence_references": [
-        "/home/marc/projects/Mastering-Moss/marketing-truths.json#moss.pricing — 'Skipper NZD 29/mo · Operator NZD 79/mo · Fleet NZD 149/mo · 14-day free trial' (per-product source of truth)",
+        "/home/marc/projects/Mastering-Moss/marketing-truths.json#moss.pricing \u2014 'Skipper NZD 29/mo \u00b7 Operator NZD 79/mo \u00b7 Fleet NZD 149/mo \u00b7 14-day free trial' (per-product source of truth)",
         "https://mastering-moss-production.up.railway.app/ (live prod; pricing page behind login)",
         "Audit ae730cac (2026-05-12)"
       ],
@@ -121,15 +167,17 @@
       "decision": "keep",
       "last_verified": "2026-05-12",
       "owner": "marc",
-      "notes": "FTA s9/s12A/s13/s19 SAFE — 'From NZ$29/month' is truthful entry-price (Skipper tier in MOSS per-product registry). 'Tiered by fleet size' is accurate descriptor of the 3-tier Skipper/Operator/Fleet structure. Matches JSON-LD Offers in same file. No partner/certification overclaim."
+      "notes": "FTA s9/s12A/s13/s19 SAFE \u2014 'From NZ$29/month' is truthful entry-price (Skipper tier in MOSS per-product registry). 'Tiered by fleet size' is accurate descriptor of the 3-tier Skipper/Operator/Fleet structure. Matches JSON-LD Offers in same file. No partner/certification overclaim."
     },
     {
       "id": "portfolio.courses.pricing-visible",
-      "claim": "NZ$25 · CCA-F Practice Exams · 90-day access",
-      "surfaces": ["index.html#L358"],
+      "claim": "NZ$25 \u00b7 CCA-F Practice Exams \u00b7 90-day access",
+      "surfaces": [
+        "index.html#L358"
+      ],
       "evidence_references": [
-        "https://courses.instilligent.com — EzyCourse-hosted storefront (live; price listed on enrolment page)",
-        "Existing claim courses.cca-f.framing (verdict IMPLEMENTED 2026-04-30) covers the 'Instilligent's own practice exam, not Anthropic-issued' framing — this entry adds the visible price",
+        "https://courses.instilligent.com \u2014 EzyCourse-hosted storefront (live; price listed on enrolment page)",
+        "Existing claim courses.cca-f.framing (verdict IMPLEMENTED 2026-04-30) covers the 'Instilligent's own practice exam, not Anthropic-issued' framing \u2014 this entry adds the visible price",
         "Marc attested 2026-05-12: NZ$25 / 90-day access is the live EzyCourse price",
         "Audit ae730cac (2026-05-12)"
       ],
@@ -137,11 +185,11 @@
       "decision": "keep",
       "last_verified": "2026-05-12",
       "owner": "marc",
-      "notes": "FTA s9/s12A/s13/s19 SAFE — NZ$25 / 90-day access is the live EzyCourse sale price (Marc-attested). CCA-F framing inherits from existing claim courses.cca-f.framing (Instilligent's own practice exam, not Anthropic-issued) — disclaimer already lives in disclaimers_required[]. No partner / Anthropic-credential overclaim. Adds visible HTML price next to the existing 'independent of Anthropic' framing."
+      "notes": "FTA s9/s12A/s13/s19 SAFE \u2014 NZ$25 / 90-day access is the live EzyCourse sale price (Marc-attested). CCA-F framing inherits from existing claim courses.cca-f.framing (Instilligent's own practice exam, not Anthropic-issued) \u2014 disclaimer already lives in disclaimers_required[]. No partner / Anthropic-credential overclaim. Adds visible HTML price next to the existing 'independent of Anthropic' framing."
     },
     {
       "id": "portfolio.moss.status",
-      "claim": "Mastering MOSS — Maritime Operator Safety System for NZ commercial maritime",
+      "claim": "Mastering MOSS \u2014 Maritime Operator Safety System for NZ commercial maritime",
       "surfaces": [
         "index.html#L101 (JSON-LD)",
         "index.html#L334 (homepage product card, added 2026-04-30)",
@@ -149,7 +197,7 @@
         "llms.txt#L15"
       ],
       "evidence_references": [
-        "~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 audited claims IMPLEMENTED — voyage/photo/sea-time moved to Roadmap by Mastering-MOSS#1)",
+        "~/cf-research/marketing-audits/moss-2026-04-30.md (9 of 13 audited claims IMPLEMENTED \u2014 voyage/photo/sea-time moved to Roadmap by Mastering-MOSS#1)",
         "Mastering-Moss/marketing-truths.json (per-product registry)",
         "https://mastering-moss-production.up.railway.app (live prod deployment)"
       ],
@@ -160,39 +208,55 @@
     },
     {
       "id": "services.compliance-tooling",
-      "claim": "Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)",
-      "surfaces": ["llms.txt#L26"],
-      "evidence_references": ["~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"],
+      "claim": "Compliance Tooling \u2014 building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)",
+      "surfaces": [
+        "llms.txt#L26"
+      ],
+      "evidence_references": [
+        "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-04-30",
       "owner": "marc",
-      "previous_overclaim": "Was 'Compliance Automation — automating regulatory compliance workflows with AI' which overstated automation depth. Recalled 2026-04-30 to match MC positioning v2."
+      "previous_overclaim": "Was 'Compliance Automation \u2014 automating regulatory compliance workflows with AI' which overstated automation depth. Recalled 2026-04-30 to match MC positioning v2."
     },
     {
       "id": "anthropic.partner-status",
       "claim_NOT_made": "Anthropic Partner / Microsoft Partner / AWS Partner / certified credentials",
       "verdict": "ABSENT",
-      "evidence_references": ["Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"],
+      "evidence_references": [
+        "Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' \u2192 'Building on Anthropic's Claude models...')"
+      ],
       "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md"
     },
     {
       "id": "instilligent.privacy-consent-banner",
       "claim": "Privacy preferences notice + Google Analytics service description shown to visitors via Klaro consent banner.",
-      "surfaces": ["index.html", "pages/about.html", "pages/services.html", "pages/privacy.html"],
-      "code_references": ["js/analytics.js (window.klaroConfig.translations.en + services[0].description)"],
+      "surfaces": [
+        "index.html",
+        "pages/about.html",
+        "pages/services.html",
+        "pages/privacy.html"
+      ],
+      "code_references": [
+        "js/analytics.js (window.klaroConfig.translations.en + services[0].description)"
+      ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-05-17",
       "owner": "marc",
-      "notes": "GA4 + Klaro v0.7.21 + Consent Mode v2 scaffold (2026-05-17). Banner copy: 'Privacy preferences. We use cookies to understand how visitors use our site. Choose your preferences below.' Service: 'Google Analytics — Anonymous analytics so we can understand which content visitors find useful on Instilligent.' Factual privacy notice; not a product claim. No partnership/credential implication."
+      "notes": "GA4 + Klaro v0.7.21 + Consent Mode v2 scaffold (2026-05-17). Banner copy: 'Privacy preferences. We use cookies to understand how visitors use our site. Choose your preferences below.' Service: 'Google Analytics \u2014 Anonymous analytics so we can understand which content visitors find useful on Instilligent.' Factual privacy notice; not a product claim. No partnership/credential implication."
     },
     {
       "id": "courses.product.live-status",
-      "claim": "Instilligent Courses — live at courses.instilligent.com. Currently 1 published SKU (CCA-F Practice Exams, NZ$25 / 90-day access).",
-      "surfaces": ["index.html#L349", "index.html#L358"],
+      "claim": "Instilligent Courses \u2014 live at courses.instilligent.com. Currently 1 published SKU (CCA-F Practice Exams, NZ$25 / 90-day access).",
+      "surfaces": [
+        "index.html#L349",
+        "index.html#L358"
+      ],
       "evidence_references": [
-        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md — CF project row 'instilligent-courses', active, production",
-        "Existing claim 'portfolio.courses.pricing-visible' (verdict IMPLEMENTED 2026-05-12) — canonical price source",
-        "https://courses.instilligent.com — live EzyCourse-hosted storefront"
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md \u2014 CF project row 'instilligent-courses', active, production",
+        "Existing claim 'portfolio.courses.pricing-visible' (verdict IMPLEMENTED 2026-05-12) \u2014 canonical price source",
+        "https://courses.instilligent.com \u2014 live EzyCourse-hosted storefront"
       ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-05-22",
@@ -202,65 +266,184 @@
     {
       "id": "courses.platform.hosting",
       "claim": "Courses storefront is hosted on EzyCourse (third-party LMS); Instilligent does not operate its own course backend.",
-      "surfaces": ["index.html#L358"],
+      "surfaces": [
+        "index.html#L358"
+      ],
       "evidence_references": [
-        "/home/marc/projects/instilligent-courses/brand/ezycourse-support-ticket-tenant-name-rename.md — EzyCourse tenant rename shipped + verified live 2026-05-21",
-        "https://courses.instilligent.com — EzyCourse tenant"
+        "/home/marc/projects/instilligent-courses/brand/ezycourse-support-ticket-tenant-name-rename.md \u2014 EzyCourse tenant rename shipped + verified live 2026-05-21",
+        "https://courses.instilligent.com \u2014 EzyCourse tenant"
       ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-05-22",
       "owner": "marc",
-      "notes": "Hosting transparency: Instilligent provides the course content and brand; EzyCourse provides the LMS infrastructure (auth, payments, content delivery, video hosting). No 'we built a courses platform' claim is made anywhere in public copy. This entry exists so any future copy that frames courses as Instilligent-operated infrastructure has a governed claim to point at — and gets recalled."
+      "notes": "Hosting transparency: Instilligent provides the course content and brand; EzyCourse provides the LMS infrastructure (auth, payments, content delivery, video hosting). No 'we built a courses platform' claim is made anywhere in public copy. This entry exists so any future copy that frames courses as Instilligent-operated infrastructure has a governed claim to point at \u2014 and gets recalled."
     },
     {
       "id": "courses.portfolio.roadmap",
       "claim": "13 courses planned across Track A (technical/cert, paid) and Track B (vertical/cross-sell, free intro + paid deep dive); only CCA-F Practice Exams is live today.",
       "surfaces": [],
       "evidence_references": [
-        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md §2 — 'The portfolio — 13 courses across 2 tracks' (5 Track A + 8 Track B)",
-        "Same doc §6 — sequencing (Track B first per Marc 2026-05-21)",
-        "Same doc §1 — 'v2 changelog from v1: scope expanded from 5 standalone candidates to a two-track 13-course portfolio'"
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md \u00a72 \u2014 'The portfolio \u2014 13 courses across 2 tracks' (5 Track A + 8 Track B)",
+        "Same doc \u00a76 \u2014 sequencing (Track B first per Marc 2026-05-21)",
+        "Same doc \u00a71 \u2014 'v2 changelog from v1: scope expanded from 5 standalone candidates to a two-track 13-course portfolio'"
       ],
       "verdict": "PLANNED",
       "last_verified": "2026-05-22",
       "owner": "marc",
-      "notes": "Roadmap-only entry — NOT IMPLEMENTED. NONE of the 12 unbuilt SKUs may appear as 'available' / 'live' / 'buy now' / 'launching this quarter' on any customer-facing surface until per-SKU verdict flips to IMPLEMENTED. Only CCA-F Practice Exams (covered by 'courses.product.live-status' and 'portfolio.courses.pricing-visible') is currently advertised as available. This entry exists so a roadmap mention (e.g. 'more courses coming') has a governed claim to point at; advertising any specific roadmap SKU as available without flipping its per-SKU claim to IMPLEMENTED is a recall-worthy overclaim."
+      "notes": "Roadmap-only entry \u2014 NOT IMPLEMENTED. NONE of the 12 unbuilt SKUs may appear as 'available' / 'live' / 'buy now' / 'launching this quarter' on any customer-facing surface until per-SKU verdict flips to IMPLEMENTED. Only CCA-F Practice Exams (covered by 'courses.product.live-status' and 'portfolio.courses.pricing-visible') is currently advertised as available. This entry exists so a roadmap mention (e.g. 'more courses coming') has a governed claim to point at; advertising any specific roadmap SKU as available without flipping its per-SKU claim to IMPLEMENTED is a recall-worthy overclaim."
     },
     {
       "id": "courses.cca-f.copyright-safety",
       "claim": "CCA-F practice questions are Instilligent-authored, not derived from Anthropic exam content or competitor question banks.",
-      "surfaces": ["index.html#L349"],
+      "surfaces": [
+        "index.html#L349"
+      ],
       "evidence_references": [
-        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md §1.2 — 'Carry no copyright risk — no Anthropic exam content, no competitor question banks, no third-party copyrighted material' (constraint applies to the live CCA-F and to all 13 roadmap SKUs)"
+        "/home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md \u00a71.2 \u2014 'Carry no copyright risk \u2014 no Anthropic exam content, no competitor question banks, no third-party copyrighted material' (constraint applies to the live CCA-F and to all 13 roadmap SKUs)"
       ],
       "verdict": "IMPLEMENTED",
       "last_verified": "2026-05-22",
       "owner": "marc",
-      "notes": "Pairs with existing claim 'courses.cca-f.framing' (independent practice exam framing, not Anthropic-issued). Copyright-safety is a separate axis — the framing claim addresses certification-authority overclaim; this claim addresses derivation / IP risk. Both must hold together on any CCA-F surface."
+      "notes": "Pairs with existing claim 'courses.cca-f.framing' (independent practice exam framing, not Anthropic-issued). Copyright-safety is a separate axis \u2014 the framing claim addresses certification-authority overclaim; this claim addresses derivation / IP risk. Both must hold together on any CCA-F surface."
     },
     {
       "id": "courses.recall_history",
       "claim": "Cross-reference index of previously-dropped courses.* claims.",
-      "cross_ref": ["courses.international-learners"],
+      "cross_ref": [
+        "courses.international-learners"
+      ],
       "evidence_references": [
-        "Existing entry id 'courses.international-learners' (verdict ABSENT) — 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
+        "Existing entry id 'courses.international-learners' (verdict ABSENT) \u2014 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
       ],
       "verdict": "ACCURATE",
       "last_verified": "2026-05-22",
       "owner": "marc",
       "notes": "Pointer-only entry. Added 2026-05-22 to make the courses.* recall index discoverable when reading the courses block together. Do NOT re-introduce 'international learners' or any learner-geography metric without a backend data source. See feedback memory: feedback_no_unverified_partner_claims.md and the 'anthropic.partner-status' rule above."
+    },
+    {
+      "id": "parent.nzbn",
+      "claim": "Instilligent Limited is a New Zealand registered company, NZBN 9429041896853.",
+      "surfaces": [
+        "index.html"
+      ],
+      "evidence_references": [
+        "Certificate of Incorporation company 5775307"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21"
+    },
+    {
+      "id": "parent.early-stage-honesty",
+      "claim": "Our products are early-stage and we describe them only by what they actually do today.",
+      "surfaces": [
+        "index.html"
+      ],
+      "evidence_references": [
+        "marketing-truths per product repo",
+        "claim-audit policy"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21"
+    },
+    {
+      "id": "parent.founder-led-delivery",
+      "claim": "Founder-led software and technology delivery for organisations across New Zealand and the wider region.",
+      "surfaces": [
+        "index.html"
+      ],
+      "evidence_references": [
+        "Instilligent operating company"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21"
+    },
+    {
+      "id": "parent.sub.nzbn",
+      "claim": "NZBN: 9429041896853",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.nzbn2",
+      "claim": "NZBN 9429041896853",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.founded2019",
+      "claim": "founded in 2019",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.early",
+      "claim": "early-stage",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.modernise",
+      "claim": "modernise operations and adopt AI",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.codehumanist",
+      "claim": "Read-only codebase comprehension",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.conversations",
+      "claim": "We're always open to conversations",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21",
+      "surfaces": [
+        "index.html",
+        "pages/about.html"
+      ]
+    },
+    {
+      "id": "parent.sub.do_today",
+      "claim": "only by what they actually do today",
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-07-21"
     }
   ],
   "disclaimers_required": [
     "CCA-F: Instilligent's own practice exam, not an Anthropic-issued credential.",
-    "Modular Compliance: tooling maps legislation to obligations, frameworks, controls and tasks — does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
+    "Modular Compliance: tooling maps legislation to obligations, frameworks, controls and tasks \u2014 does not connect to operational systems, monitor transactions, screen activity, or take regulatory action."
   ],
   "open_items": [
-    "Contact form: shipped Cloudflare Pages Function → Resend in instilligent-website#3 (Resend key plumbed via wrangler 2026-04-30; live once PR merges and Pages redeploys).",
-    "Stage 3 enforcement: shipped 2026-04-30 — pre-commit hook + linter + git template-dir installed across all 6 portfolio repos. Drift cron (quarterly re-audit) still pending — single CF task."
+    "Contact form: shipped Cloudflare Pages Function \u2192 Resend in instilligent-website#3 (Resend key plumbed via wrangler 2026-04-30; live once PR merges and Pages redeploys).",
+    "Stage 3 enforcement: shipped 2026-04-30 \u2014 pre-commit hook + linter + git template-dir installed across all 6 portfolio repos. Drift cron (quarterly re-audit) still pending \u2014 single CF task."
   ],
   "portfolio_gaps": {
-    "_note": "Cross-portfolio roadmap tracker. Each entry is a feature claim that's currently roadmapped (NOT yet shipped) — every gap that closes here unlocks a new product claim that can move from ROADMAP → IMPLEMENTED in the relevant product's marketing-truths.json. Filed 2026-04-30 to give the next 24-48h of build work explicit targets.",
+    "_note": "Cross-portfolio roadmap tracker. Each entry is a feature claim that's currently roadmapped (NOT yet shipped) \u2014 every gap that closes here unlocks a new product claim that can move from ROADMAP \u2192 IMPLEMENTED in the relevant product's marketing-truths.json. Filed 2026-04-30 to give the next 24-48h of build work explicit targets.",
     "moss": {
       "product": "Mastering MOSS",
       "live_at": "https://mastering-moss-production.up.railway.app",
@@ -268,8 +451,8 @@
       "build_gaps": [
         {
           "id": "moss.gap.dns-pointer",
-          "title": "Set DNS pointer for masteringmoss.co.nz → Railway",
-          "priority": "P1 — unlocks branded URL on portfolio cards + JSON-LD",
+          "title": "Set DNS pointer for masteringmoss.co.nz \u2192 Railway",
+          "priority": "P1 \u2014 unlocks branded URL on portfolio cards + JSON-LD",
           "effort": "30 min",
           "owner": "marc"
         },
@@ -304,7 +487,7 @@
         {
           "id": "mc.gap.notifier",
           "title": "Due-date alerts / notifications (email + in-app)",
-          "priority": "P1 — currently ROADMAP, was previously over-claimed in JSON-LD featureList; truthful copy hides the feature until built",
+          "priority": "P1 \u2014 currently ROADMAP, was previously over-claimed in JSON-LD featureList; truthful copy hides the feature until built",
           "effort": "1-2 days (cron job + daily query + email templates + in-app notifications + per-tenant prefs + tests + soak)",
           "owner": "marc",
           "notes": "Audit verdict: STUB. Once built, flip to IMPLEMENTED in MC marketing-truths.json + restore claim to JSON-LD featureList."
@@ -312,14 +495,14 @@
         {
           "id": "mc.gap.control-attestations",
           "title": "First-class attestations on controls (signed off by user, immutable, queryable)",
-          "priority": "P2 — currently PARTIAL (terms acceptance + task completion approval exist, but no control attestation flow)",
+          "priority": "P2 \u2014 currently PARTIAL (terms acceptance + task completion approval exist, but no control attestation flow)",
           "effort": "2-3 days (data model + UI + audit log)",
           "owner": "marc"
         },
         {
           "id": "mc.gap.additional-frameworks",
           "title": "Native templates for ISO 27001, SOC 2, HIPC, NZISM",
-          "priority": "P3 — currently customer-buildable as custom frameworks, but truthful copy notes native templates not shipped",
+          "priority": "P3 \u2014 currently customer-buildable as custom frameworks, but truthful copy notes native templates not shipped",
           "effort": "1-2 days per framework",
           "owner": "marc"
         }
@@ -332,21 +515,21 @@
         {
           "id": "bossboard.gap.cashflow-forecasting",
           "title": "Cashflow forecasting + Xero integration",
-          "priority": "P1 — currently framed as Coming Q2 2026 in README + llms.txt",
-          "effort": "Module 2 in CLAUDE.md (Q2-Q3 2026 — multi-day)",
+          "priority": "P1 \u2014 currently framed as Coming Q2 2026 in README + llms.txt",
+          "effort": "Module 2 in CLAUDE.md (Q2-Q3 2026 \u2014 multi-day)",
           "owner": "marc"
         },
         {
           "id": "bossboard.gap.visa-hiring",
           "title": "Visa / hiring compliance module",
-          "priority": "P3 — Module 3, framed as Coming Q3-Q4 2026",
+          "priority": "P3 \u2014 Module 3, framed as Coming Q3-Q4 2026",
           "effort": "Multi-day (Module 3 in CLAUDE.md)",
           "owner": "marc"
         },
         {
           "id": "bossboard.gap.team-scheduling",
           "title": "Team scheduling + job assignment / dispatch",
-          "priority": "DROPPED — was over-claimed in Team-tier pricing, removed by trademate-nz#2. Only re-add to copy IF actually built.",
+          "priority": "DROPPED \u2014 was over-claimed in Team-tier pricing, removed by trademate-nz#2. Only re-add to copy IF actually built.",
           "effort": "TBD",
           "owner": "marc"
         },
@@ -356,7 +539,7 @@
           "priority": "RESOLVED 2026-04-30",
           "effort": "n/a",
           "owner": "marc",
-          "notes": "Stage 2 BossBoard agent confirmed: toolbox talks is NOT a feature in code — only a form *field* inside SWMS templates (swms-electrician.json). Resolution: REMOVED FROM COPY (this PR). instilligent.com#L331 BossBoard card no longer mentions toolbox talks. CF task mtr-2026-04-30-iw-toolbox-removal closes with this PR."
+          "notes": "Stage 2 BossBoard agent confirmed: toolbox talks is NOT a feature in code \u2014 only a form *field* inside SWMS templates (swms-electrician.json). Resolution: REMOVED FROM COPY (this PR). instilligent.com#L331 BossBoard card no longer mentions toolbox talks. CF task mtr-2026-04-30-iw-toolbox-removal closes with this PR."
         }
       ]
     },
@@ -366,8 +549,8 @@
       "build_gaps": [
         {
           "id": "proofonce.gap.entire-product",
-          "title": "Entire product backend — document and identity verification",
-          "priority": "P? — pre-launch, no defined timeline yet",
+          "title": "Entire product backend \u2014 document and identity verification",
+          "priority": "P? \u2014 pre-launch, no defined timeline yet",
           "effort": "Multi-week (whole product)",
           "owner": "marc",
           "notes": "Site framing is honest (Coming Soon). Notify CTA is mailto: to info@instilligent.com. When real waitlist needed, replicate instilligent-website#3 Pages Function pattern."
@@ -381,17 +564,17 @@
         {
           "id": "codehumanist.gap.security-audit",
           "title": "Independent third-party security audit (validates 'read-only by design' trust pillars)",
-          "priority": "P1 — required before general availability per the new 'audit pending' framing",
+          "priority": "P1 \u2014 required before general availability per the new 'audit pending' framing",
           "effort": "External vendor; 2-4 weeks engagement",
           "owner": "marc"
         },
         {
           "id": "codehumanist.gap.waitlist-form-backend",
           "title": "Waitlist form backend (currently same client-side-only pattern as old ProofOnce form)",
-          "priority": "P2 — verify and either wire backend (Pages Function + Resend) or remove form",
+          "priority": "P2 \u2014 verify and either wire backend (Pages Function + Resend) or remove form",
           "effort": "30 min - 2 hours",
           "owner": "marc",
-          "notes": "Flagged in codehumanist-website#1 open_items. Same pattern as instilligent-website#3 contact-form Pages Function — reusable."
+          "notes": "Flagged in codehumanist-website#1 open_items. Same pattern as instilligent-website#3 contact-form Pages Function \u2014 reusable."
         }
       ]
     }
