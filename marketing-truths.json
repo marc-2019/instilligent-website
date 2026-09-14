@@ -43,6 +43,22 @@
       "previous_overclaim": "main-branch llms.txt, privacy, about, and services still had NZBN 9429051796284 (wrong). Homepage footer was already 9429041896853. Corrected 2026-08-26 for entity consistency."
     },
     {
+      "id": "instilligent.legal.founding-date",
+      "claim": "Instilligent Limited was incorporated in 2015 (NZ Companies Office, 12 Aug 2015).",
+      "surfaces": [
+        "index.html JSON-LD foundingDate",
+        "llms.txt"
+      ],
+      "evidence_references": [
+        "NZ Companies Office incorporation 12 Aug 2015, company 5775307, NZBN 9429041896853 (CF 31f2780f)",
+        "Security REQUEST_CHANGES CF 75d07db3 — 2019 foundingDate / 'founded in 2019' conflicted with Companies Office 2015"
+      ],
+      "verdict": "IMPLEMENTED",
+      "last_verified": "2026-09-14",
+      "owner": "marc",
+      "previous_overclaim": "JSON-LD foundingDate and llms.txt said founded in 2019. Corrected 2026-09-14 to 2015 / 2015-08-12. Personal '15+ years' experience wording is Marc/person experience, not company age."
+    },
+    {
       "id": "portfolio.modular-compliance.status",
       "claim": "Modular Compliance — Live. NZ-built compliance register and workflow tool that maps legislation into frameworks, controls and tasks.",
       "surfaces": [

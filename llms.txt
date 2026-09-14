@@ -4,7 +4,7 @@
 
 ## About
 
-Instilligent is a New Zealand-based software company founded in 2019 by Marc Armstrong. We build AI software for regulated industries — compliance registers, trade health-and-safety tools, maritime safety systems, and related products. With over 15 years of experience in software delivery, systems integration, and technology, we operate across New Zealand, Australia, and Southeast Asia.
+Instilligent is a New Zealand-based software company founded in 2015 by Marc Armstrong. We build AI software for regulated industries — compliance registers, trade health-and-safety tools, maritime safety systems, and related products. With over 15 years of experience in software delivery, systems integration, and technology, we operate across New Zealand, Australia, and Southeast Asia.
 
 We build production-grade AI software that solves real business problems. Our products are described only by what they actually do today.
 
