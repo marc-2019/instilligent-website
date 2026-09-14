@@ -98,18 +98,16 @@
     },
     {
       "id": "portfolio.ai-consulting.status",
-      "claim": "AI Consulting & Delivery — Contact Us / At Capacity",
-      "surfaces": [
-        "pages/about.html#L499",
-        "index.html#L326"
-      ],
+      "claim_dropped_2026_09_14": "AI Consulting & Delivery — Contact Us / At Capacity",
+      "reason": "Marc decision: remove consulting positioning from the public website (not rename to bespoke/custom development). Surfaces withdrawn from index.html, about.html, llms.txt, privacy listing, and the former services page. Publish/deploy remains Marc L3.",
+      "surfaces": [],
       "evidence_references": [
-        "Marc personally delivers consulting. At-capacity claim is truthful — Marc + Kevin both fully engaged 2026-04-30."
+        "CF 0d541f8c (remediation brief), 2e1d7643 (NVIDIA deck v2), 31f2780f (age-gate FAIL cite-only), 187e7217 (Spark inference ground truth)"
       ],
-      "verdict": "IMPLEMENTED",
-      "last_verified": "2026-04-30",
+      "verdict": "ABSENT",
+      "last_verified": "2026-09-14",
       "owner": "marc",
-      "previous_overclaim": "Was labelled 'Available Now'; reframed 2026-04-30 to truthful 'Contact Us / at capacity' framing."
+      "previous_overclaim": "Was labelled 'Available Now'; reframed 2026-04-30 to truthful 'Contact Us / at capacity' framing. Entire offering removed from public copy 2026-09-14."
     },
     {
       "id": "courses.cca-f.framing",
@@ -231,7 +229,7 @@
       "id": "services.compliance-tooling",
       "claim": "Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)",
       "surfaces": [
-        "llms.txt#L26"
+        "llms.txt Modular Compliance product bullet (compliance tooling framing; former standalone Services list removed 2026-09-14)"
       ],
       "evidence_references": [
         "~/cf-research/marketing-audits/modular-compliance-2026-04-30.md (positioning v2)"

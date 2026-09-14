@@ -1,12 +1,12 @@
 # Instilligent Limited
 
-> AI consultancy and product studio building intelligent solutions for regulated industries across New Zealand, Australia, and Southeast Asia.
+> New Zealand software company building AI products for regulated industries across New Zealand, Australia, and Southeast Asia.
 
 ## About
 
-Instilligent is a New Zealand-based software company founded in 2019 by Marc Armstrong. We combine deep AI expertise with hands-on consulting to help organisations in regulated industries move faster, stay compliant, and build smarter. With over 15 years of experience in software delivery, systems integration, and technology strategy, we operate across New Zealand, Australia, and Southeast Asia.
+Instilligent is a New Zealand-based software company founded in 2019 by Marc Armstrong. We build AI software for regulated industries — compliance registers, trade health-and-safety tools, maritime safety systems, and related products. With over 15 years of experience in software delivery, systems integration, and technology, we operate across New Zealand, Australia, and Southeast Asia.
 
-We build production-grade AI software that solves real business problems, and we provide specialist consulting and contracting to help organisations adopt AI effectively.
+We build production-grade AI software that solves real business problems. Our products are described only by what they actually do today.
 
 ## Products
 
@@ -16,14 +16,6 @@ We build production-grade AI software that solves real business problems, and we
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.
 - [CodeHumanist](https://codehumanist.com) — Read-only codebase comprehension platform for human stakeholders. Understand AI-generated codebases — architecture, data flows, use cases — without touching code. Currently waitlist.
 - [ProofOnce](https://proofonce.com) — Document and identity verification platform. Verify once, reuse across consumers. Pre-launch.
-
-## Services
-
-- AI Consulting and Advisory — strategy, architecture, and implementation guidance for AI adoption
-- Specialist Contracting — hands-on software development and AI engineering
-- Technology Strategy — modernisation roadmaps and architecture reviews
-- Systems Integration — connecting platforms, APIs, and data across your organisation
-- Compliance Tooling — building AI-assisted tools that map regulatory obligations to controls and tasks (people still do the compliance work; the tooling keeps the record)
 
 ## Technology
 
