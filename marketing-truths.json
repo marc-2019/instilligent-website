@@ -2,8 +2,8 @@
   "$schema": "https://instilligent.com/schemas/marketing-truths.v1.json",
   "product_name": "Instilligent.com (parent brand site + courses)",
   "product_status": "live",
-  "last_full_audit_date": "2026-05-22",
-  "last_full_audit_by": "claude+marc",
+  "last_full_audit_date": "2026-09-15",
+  "last_full_audit_by": "Instilligent CPO (Grok) — website ABSENT×3 honesty close; cite CF 26e13ab7 / before-act 38091692",
   "audit_doc": "~/cf-research/marketing-audits/instilligent-com-2026-04-30.md",
   "audit_doc_courses_2026_05_22": "CF task: add explicit courses.* product_claims block to instilligent-website/marketing-truths.json (option A, Marc-approved 2026-05-22). Closes the marketing-truths guardrail gap for Instilligent Courses now that it is a governed product with its own workspace at /home/marc/projects/instilligent-courses/ and a 13-SKU roadmap at /home/marc/projects/instilligent-courses/docs/specs/2026-05-21-five-new-course-candidates.md.",
   "cf_directive": "customer-facing-copy-requires-product-claim-audit",
@@ -99,29 +99,35 @@
       "id": "portfolio.proofonce.status",
       "claim": "ProofOnce — Coming Soon (pre-launch)",
       "surfaces": [
-        "pages/about.html#L491",
-        "index.html#L147 (JSON-LD)",
-        "index.html#L344"
+        "index.html product card + JSON-LD (Pre-launch / Coming Soon)",
+        "pages/about.html portfolio card (Coming Soon badge)",
+        "pages/services.html product card (Coming Soon)",
+        "pages/privacy.html Additional Products (planned / Coming Soon)",
+        "nav dropdowns (Coming Soon — document verification)",
+        "llms.txt"
       ],
       "evidence_references": [
         "~/cf-research/marketing-audits/proofonce-2026-04-30.md",
         "/home/marc/projects/proofonce-website/index.html (TODO at L121: 'wire up to a real backend')"
       ],
-      "verdict": "ABSENT",
-      "last_verified": "2026-04-30",
+      "verdict": "ACCURATE",
+      "last_verified": "2026-09-15",
       "owner": "marc",
-      "previous_overclaim": "Was labelled 'Live' + described as a current 'Document and identity verification platform' in present tense; recalled 2026-04-30 because no backend exists. Description rewritten to future tense."
+      "previous_overclaim": "Was labelled 'Live' + described as a current 'Document and identity verification platform' in present tense; recalled 2026-04-30 because no backend exists. Description rewritten to future tense.",
+      "honesty_close_2026_09_15": "Copy softened: nav/privacy no longer present-tense live product. Claim registers truthful Coming Soon framing; does NOT invent a shipped ProofOnce backend.",
+      "notes": "Product backend still absent (see proofonce-website). Marketing claim Coming Soon is accurate. Do not re-label Live without a real backend."
     },
     {
       "id": "portfolio.ai-consulting.status",
+      "claim": "AI Consulting & Delivery is not currently positioned on the public website (offering withdrawn 2026-09-14).",
       "claim_dropped_2026_09_14": "AI Consulting & Delivery — Contact Us / At Capacity",
       "reason": "Marc decision: remove consulting positioning from the public website (not rename to bespoke/custom development). Surfaces withdrawn from index.html, about.html, llms.txt, privacy listing, and the former services page. Publish/deploy remains Marc L3.",
       "surfaces": [],
       "evidence_references": [
         "CF 0d541f8c (remediation brief), 2e1d7643 (NVIDIA deck v2), 31f2780f (age-gate FAIL cite-only), 187e7217 (Spark inference ground truth)"
       ],
-      "verdict": "ABSENT",
-      "last_verified": "2026-09-14",
+      "verdict": "ACCURATE",
+      "last_verified": "2026-09-15",
       "owner": "marc",
       "previous_overclaim": "Was labelled 'Available Now'; reframed 2026-04-30 to truthful 'Contact Us / at capacity' framing. Entire offering removed from public copy 2026-09-14."
     },
@@ -141,9 +147,14 @@
     },
     {
       "id": "courses.international-learners",
+      "claim": "No 'international learners across multiple countries' metric claimed. Public copy uses 'Available globally' (anyone can buy).",
       "claim_dropped_2026_04_30": "international learners across multiple countries",
       "reason": "Unverifiable. No backend data source for learner geography. Replaced with 'Available globally' (truthful — anyone can buy).",
-      "verdict": "ABSENT"
+      "surfaces": ["index.html courses product card"],
+      "verdict": "ACCURATE",
+      "last_verified": "2026-09-15",
+      "owner": "marc",
+      "honesty_close_2026_09_15": "Registry reclassified ABSENT→ACCURATE: the honesty state is that the geography metric is NOT claimed. No invent of learner-geo features."
     },
     {
       "id": "portfolio.bossboard.status",
@@ -257,12 +268,20 @@
     },
     {
       "id": "anthropic.partner-status",
+      "claim": "Instilligent does not claim Anthropic Partner / Microsoft Partner / AWS Partner / certified-credential status without a signed agreement on file.",
       "claim_NOT_made": "Anthropic Partner / Microsoft Partner / AWS Partner / certified credentials",
-      "verdict": "ABSENT",
+      "surfaces": [
+        "pages/about.html founder bio ('Building on Anthropic's Claude models...')",
+        "index.html CCA-F framing (not Anthropic-issued)"
+      ],
+      "verdict": "ACCURATE",
+      "last_verified": "2026-09-15",
+      "owner": "marc",
       "evidence_references": [
         "Commit ae16bb1 (founder bio: 'As an Anthropic Claude Partner...' → 'Building on Anthropic's Claude models...')"
       ],
-      "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md"
+      "rule": "No partner / affiliation / certification claim without a signed agreement on file. See feedback memory: feedback_no_unverified_partner_claims.md",
+      "honesty_close_2026_09_15": "Registry reclassified ABSENT→ACCURATE for the negative/honest registration. No invent of partner status."
     },
     {
       "id": "courses.product.live-status",
@@ -331,10 +350,10 @@
         "courses.international-learners"
       ],
       "evidence_references": [
-        "Existing entry id 'courses.international-learners' (verdict ABSENT) — 'international learners across multiple countries' claim dropped 2026-04-30 because no backend data source supports learner-geography metrics"
+        "Existing entry id 'courses.international-learners' (verdict ACCURATE as of 2026-09-15) — 'international learners across multiple countries' claim dropped 2026-04-30; honesty close registers that the metric is not claimed."
       ],
-      "verdict": "ABSENT",
-      "last_verified": "2026-05-22",
+      "verdict": "ACCURATE",
+      "last_verified": "2026-09-15",
       "owner": "marc",
       "notes": "Pointer-only entry. Added 2026-05-22 to make the courses.* recall index discoverable when reading the courses block together. Do NOT re-introduce 'international learners' or any learner-geography metric without a backend data source. See feedback memory: feedback_no_unverified_partner_claims.md and the 'anthropic.partner-status' rule above."
     }
