@@ -15,7 +15,7 @@ We build production-grade AI software that solves real business problems. Our pr
 - [Mastering MOSS](https://masteringmoss.co.nz) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month. Live.
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.
 - [CodeHumanist](https://codehumanist.com) — Read-only codebase comprehension platform for human stakeholders. Understand AI-generated codebases — architecture, data flows, use cases — without touching code. Currently waitlist.
-- [ProofOnce](https://proofonce.com) — Document and identity verification platform. Verify once, reuse across consumers. Pre-launch.
+- [ProofOnce](https://proofonce.com) — Planned document and identity verification product. Verify once, reuse across consumers. Coming Soon / pre-launch.
 
 ## Technology
 
