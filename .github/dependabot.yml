@@ -1,0 +1,9 @@
+# Weekly npm scan for the marketing-site test toolchain (vitest).
+# Satisfies CF dependency-vulnerability-hygiene (lockfile + scanner).
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
