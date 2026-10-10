@@ -9,15 +9,11 @@ Instilligent is a New Zealand-based software company founded in 2015 by Marc Arm
 ## Products
 
 - [Modular Compliance](https://modularcompliance.com) — Live. NZ-built compliance register and workflow tool. Maps legislation into frameworks, controls and tasks, records who completed what and when, and stores supporting evidence — people do the compliance work, the tool keeps the record. Starter NZ$199/month + GST, Professional NZ$499/month + GST, Enterprise by enquiry. Register at https://app.modularcompliance.com/register.
-- [BossBoard](https://bossboard.instilligent.com) — Invoicing, quotes and job records for NZ tradies, with 15% GST built in. Works on mobile and desktop. Free during beta • Paid tiers from NZD 4.99/week at launch.
-- [Mastering MOSS](https://masteringmoss.co.nz) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month. Live.
+- [BossBoard](https://bossboard.instilligent.com) — Invoicing, quotes and job records for NZ tradies, with 15% GST built in. Works on mobile and desktop.
+- [Mastering MOSS](https://masteringmoss.co.nz) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. From NZD 29/month. Live.
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.
 - [CodeHumanist](https://codehumanist.com) — Read-only codebase comprehension platform for human stakeholders. Understand AI-generated codebases — architecture, data flows, use cases — without touching code. Currently waitlist.
 - [ProofOnce](https://proofonce.com) — Planned document and identity verification product. Verify once, reuse across consumers. Coming Soon / pre-launch.
-
-## Technology
-
-We build with Anthropic Claude, MCP Protocol, Claude Code, Python, React, Next.js, Docker, Cloudflare, and Railway.
 
 ## Contact
 
