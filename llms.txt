@@ -1,17 +1,15 @@
 # Instilligent Limited
 
-> New Zealand software company building AI products for regulated industries across New Zealand, Australia, and Southeast Asia.
+> New Zealand software company building practical software for regulated industries. Products: Modular Compliance and BossBoard, plus Instilligent Courses and others.
 
 ## About
 
-Instilligent is a New Zealand-based software company founded in 2015 by Marc Armstrong. We build AI software for regulated industries — compliance registers, trade health-and-safety tools, maritime safety systems, and related products. With over 15 years of experience in software delivery, systems integration, and technology, we operate across New Zealand, Australia, and Southeast Asia.
-
-We build production-grade AI software that solves real business problems. Our products are described only by what they actually do today.
+Instilligent is a New Zealand-based software company founded in 2015 by Marc Armstrong. We build practical software for regulated industries in New Zealand: a compliance register and workflow tool (Modular Compliance), invoicing and job records for tradies (BossBoard), and related products.
 
 ## Products
 
-- [Modular Compliance](https://modularcompliance.com) — Live. NZ-built compliance register and workflow tool. Maps legislation into frameworks, controls and tasks, records who completed what and when, and stores supporting evidence — people do the compliance work, the tool keeps the record. Does not connect to operational systems, monitor transactions, screen activity, or take regulatory action.
-- [BossBoard](https://bossboard.instilligent.com) — Health & safety compliance for NZ tradespeople. Manage site diaries, incident reports, SWMS, and subcontractor records. Free during beta • Paid tiers from NZD 4.99/week at launch.
+- [Modular Compliance](https://modularcompliance.com) — Live. NZ-built compliance register and workflow tool. Maps legislation into frameworks, controls and tasks, records who completed what and when, and stores supporting evidence — people do the compliance work, the tool keeps the record. Starter NZ$199/month + GST, Professional NZ$499/month + GST, Enterprise by enquiry. Register at https://app.modularcompliance.com/register.
+- [BossBoard](https://bossboard.instilligent.com) — Invoicing, quotes and job records for NZ tradies, with 15% GST built in. Works on mobile and desktop. Free during beta • Paid tiers from NZD 4.99/week at launch.
 - [Mastering MOSS](https://masteringmoss.co.nz) — Maritime Operator Safety System (MOSS) for NZ commercial maritime operators. Digital MTOP/MTOC document builder, vessel + crew registry, compliance checklists, maintenance and safety equipment tracking. From NZD 29/month. Live.
 - [Instilligent Courses](https://courses.instilligent.com) — AI practice exams and structured courses for NZ professionals.
 - [CodeHumanist](https://codehumanist.com) — Read-only codebase comprehension platform for human stakeholders. Understand AI-generated codebases — architecture, data flows, use cases — without touching code. Currently waitlist.
