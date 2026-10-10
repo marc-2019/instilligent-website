@@ -7,3 +7,91 @@
 
 # Catch old Simvoly paths if any
 /blog/*                https://ournewnormal.co.nz/:splat  301
+
+# Repo and tooling paths stay in git for CI and the marketing-truth hook.
+# They must not be served. 404 is listed first because that is the status
+# we want. Pages skips unsupported 404 redirect lines, so each source has
+# a 302 fallback to /404.html, which Pages does apply when the asset exists.
+# functions/[[path]].ts returns 404 for the same paths.
+/DEPLOYMENT.md /404.html 404
+/DEPLOYMENT.md /404.html 302
+/marketing-truths.json /404.html 404
+/marketing-truths.json /404.html 302
+/.secrets-baseline.json /404.html 404
+/.secrets-baseline.json /404.html 302
+/.gitignore /404.html 404
+/.gitignore /404.html 302
+/.nojekyll /404.html 404
+/.nojekyll /404.html 302
+/_routes.json /404.html 404
+/_routes.json /404.html 302
+/_redirects /404.html 404
+/_redirects /404.html 302
+/_headers /404.html 404
+/_headers /404.html 302
+/README /404.html 404
+/README /404.html 302
+/README.md /404.html 404
+/README.md /404.html 302
+/package.json /404.html 404
+/package.json /404.html 302
+/package-lock.json /404.html 404
+/package-lock.json /404.html 302
+/yarn.lock /404.html 404
+/yarn.lock /404.html 302
+/pnpm-lock.yaml /404.html 404
+/pnpm-lock.yaml /404.html 302
+/wrangler.toml /404.html 404
+/wrangler.toml /404.html 302
+/wrangler.json /404.html 404
+/wrangler.json /404.html 302
+/wrangler.jsonc /404.html 404
+/wrangler.jsonc /404.html 302
+/docs /404.html 404
+/docs /404.html 302
+/docs/ /404.html 404
+/docs/ /404.html 302
+/marketing-audits /404.html 404
+/marketing-audits /404.html 302
+/marketing-audits/ /404.html 404
+/marketing-audits/ /404.html 302
+/tools /404.html 404
+/tools /404.html 302
+/tools/ /404.html 404
+/tools/ /404.html 302
+/e2e /404.html 404
+/e2e /404.html 302
+/e2e/ /404.html 404
+/e2e/ /404.html 302
+/tests /404.html 404
+/tests /404.html 302
+/tests/ /404.html 404
+/tests/ /404.html 302
+/.github /404.html 404
+/.github /404.html 302
+/.github/ /404.html 404
+/.github/ /404.html 302
+/.git-hooks /404.html 404
+/.git-hooks /404.html 302
+/.git-hooks/ /404.html 404
+/.git-hooks/ /404.html 302
+/functions /404.html 404
+/functions /404.html 302
+/functions/ /404.html 404
+/functions/ /404.html 302
+/docs/* /404.html 404
+/docs/* /404.html 302
+/marketing-audits/* /404.html 404
+/marketing-audits/* /404.html 302
+/tools/* /404.html 404
+/tools/* /404.html 302
+/e2e/* /404.html 404
+/e2e/* /404.html 302
+/tests/* /404.html 404
+/tests/* /404.html 302
+/.github/* /404.html 404
+/.github/* /404.html 302
+/.git-hooks/* /404.html 404
+/.git-hooks/* /404.html 302
+/functions/* /404.html 404
+/functions/* /404.html 302

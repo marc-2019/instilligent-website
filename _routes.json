@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/",
+    "/index.html",
+    "/404.html",
+    "/llms.txt",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/google9896ae5a7c94f3f5.html",
+    "/favicon.ico",
+    "/css/*",
+    "/js/*",
+    "/images/*",
+    "/pages/*",
+    "/about",
+    "/services",
+    "/privacy",
+    "/modular-compliance",
+    "/blog/*"
+  ]
+}
