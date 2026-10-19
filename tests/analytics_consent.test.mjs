@@ -215,6 +215,20 @@ function click(el) {
   for (const fn of el._listeners.click || []) fn({ preventDefault() {} })
 }
 
+function grantedConsentUpdates(dataLayer) {
+  return Array.prototype.filter.call(dataLayer || [], (args) =>
+    args[0] === 'consent' && args[1] === 'update' && args[2] && args[2].analytics_storage === 'granted'
+  )
+}
+
+function externalGrant(env) {
+  env.storage.setItem('instilligent.analytics_consent', 'granted')
+  env.sandbox.dispatchWindow('storage', {
+    key: 'instilligent.analytics_consent',
+    newValue: 'granted',
+  })
+}
+
 function portfolioAnchor() {
   return {
     tagName: 'A',
@@ -488,6 +502,36 @@ test('a denial removes a grant when reads and writes throw', () => {
   assert.equal(next.sandbox[DISABLE_KEY], true)
 })
 
+test('a denial written between save and resume does not grant consent', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  const originalSet = env.storage.setItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+  env.storage.setItem = originalSet
+
+  let confirmedGrant = false
+  const originalGet = env.storage.getItem.bind(env.storage)
+  env.storage.getItem = (key) => {
+    const value = originalGet(key)
+    if (!confirmedGrant && key === 'instilligent.analytics_consent' && value === 'granted') {
+      confirmedGrant = true
+      originalSet.call(env.storage, key, 'denied')
+    }
+    return value
+  }
+  click(button(env.document, 'granted'))
+  assert.equal(confirmedGrant, true)
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'denied')
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+  assert.equal(gaScripts(env.document).length, 1)
+})
+
 test('a later grant from another tab clears a stale save warning', () => {
   const env = boot({})
   const originalSet = env.storage.setItem
@@ -510,6 +554,89 @@ test('a later grant from another tab clears a stale save warning', () => {
   assert.match(status, /Analytics is off/)
   assert.equal(gaScripts(env.document).length, 0)
   assert.equal(env.sandbox.dataLayer, undefined)
+})
+
+test('an external grant clears a grant-cleared warning and accept can resume', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  const originalSet = env.storage.setItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.match(statusText(env.document), /acceptance was removed/)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+  env.storage.setItem = originalSet
+  externalGrant(env)
+  const status = statusText(env.document)
+  assert.doesNotMatch(status, /acceptance was removed/)
+  assert.doesNotMatch(status, /did not save/)
+  assert.doesNotMatch(status, /new visit can turn it on/)
+  assert.doesNotMatch(status, /Analytics is on/)
+  assert.match(status, /Analytics is off/)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+  assert.equal(bannerOf(env.document).hidden, false)
+
+  click(button(env.document, 'granted'))
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 1)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer)[0][2].analytics_storage, 'granted')
+  assert.equal(env.sandbox[DISABLE_KEY], false)
+  assert.match(statusText(env.document), /Analytics is on/)
+})
+
+test('an external grant clears a grant-remains warning and accept can resume', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  const originalSet = env.storage.setItem
+  const originalRemove = env.storage.removeItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  env.storage.removeItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.match(statusText(env.document), /new visit can turn it on/)
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+  env.storage.setItem = originalSet
+  env.storage.removeItem = originalRemove
+  externalGrant(env)
+  const status = statusText(env.document)
+  assert.doesNotMatch(status, /new visit can turn it on/)
+  assert.doesNotMatch(status, /did not save/)
+  assert.doesNotMatch(status, /acceptance was removed/)
+  assert.doesNotMatch(status, /Analytics is on/)
+  assert.match(status, /Analytics is off/)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
+
+  click(button(env.document, 'granted'))
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 1)
+  assert.equal(env.sandbox[DISABLE_KEY], false)
+  assert.match(statusText(env.document), /Analytics is on/)
+})
+
+test('escape closes the panel after an external grant clears the save warning', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  const originalSet = env.storage.setItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.match(statusText(env.document), /acceptance was removed/)
+  env.storage.setItem = originalSet
+  externalGrant(env)
+  const banner = bannerOf(env.document)
+  const launcher = launcherOf(env.document)
+  assert.equal(banner.hidden, false)
+  assert.equal(launcher.hidden, true)
+  env.document.dispatch('keydown', { key: 'Escape' })
+  assert.equal(banner.hidden, true)
+  assert.equal(launcher.hidden, false)
+  assert.equal(env.document.activeElement, launcher)
+  assert.equal(grantedConsentUpdates(env.sandbox.dataLayer).length, 0)
 })
 
 test('a failed accept after the grant was cleared does not promise the next visit', () => {

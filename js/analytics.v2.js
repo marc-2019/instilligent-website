@@ -116,9 +116,11 @@
     tagConsent = "denied";
   }
 
-  /* Resume a tag that was already injected, then withdrawn, on this page. */
+  /* Resume a tag that was already injected, then withdrawn, on this page.
+     Re-check stored consent. Another tab can deny between setItem and here. */
   function allowLoadedTag() {
     if (!gaLoaded || tagConsent === "granted" || typeof window.gtag !== "function") return;
+    if (storageGet() !== "granted" || window[DISABLE_KEY] === true) return;
     tagConsent = "granted";
     window.gtag("consent", "update", {
       analytics_storage: "granted"
@@ -217,8 +219,14 @@
       collectionStopped = false;
       setDisabled(false);
       closePanelAndFocusLauncher();
-      if (gaLoaded) allowLoadedTag();
-      else loadGa();
+      if (gaLoaded) {
+        allowLoadedTag();
+        /* The grant was cleared or the disable flag came back before resume. */
+        if (tagConsent !== "granted") {
+          stopCollection();
+          syncUi();
+        }
+      } else loadGa();
       return;
     }
 
@@ -338,7 +346,6 @@
       if (!e || e.key !== "Escape" || !panelOpen || persistNote) return;
       var choice = storageGet();
       if (choice !== "granted" && choice !== "denied") return;
-      if (collectionStopped && choice !== "denied") return;
       closePanelAndFocusLauncher();
     });
   }
