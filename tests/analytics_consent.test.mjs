@@ -53,6 +53,9 @@ function createStorage(seed) {
     setItem(key, value) {
       data[key] = String(value)
     },
+    removeItem(key) {
+      delete data[key]
+    },
     snapshot() {
       return Object.assign({}, data)
     },
@@ -411,7 +414,7 @@ test('a failed save on withdrawal still disables GA and does not claim it is off
   click(launcherOf(env.document))
   click(button(env.document, 'denied'))
 
-  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], undefined)
   assert.equal(env.sandbox[DISABLE_KEY], true)
   assert.equal(env.sandbox._reloaded, undefined)
   const update = env.sandbox.dataLayer.find((args) => args[0] === 'consent' && args[1] === 'update')
@@ -420,7 +423,9 @@ test('a failed save on withdrawal still disables GA and does not claim it is off
   const status = statusText(env.document)
   assert.match(status, /did not save/)
   assert.match(status, /stopped in this tab/)
+  assert.match(status, /removed/)
   assert.doesNotMatch(status, /Analytics is off/)
+  assert.doesNotMatch(status, /new visit can turn it on/)
   assert.equal(bannerOf(env.document).hidden, false)
 
   const before = env.sandbox.dataLayer.length
@@ -438,13 +443,60 @@ test('retrying decline after a failed save reloads once the save succeeds', () =
   click(button(env.document, 'denied'))
   assert.equal(env.sandbox._reloaded, undefined)
   assert.equal(env.sandbox[DISABLE_KEY], true)
-  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], undefined)
 
   env.storage.setItem = originalSet
   click(button(env.document, 'denied'))
   assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'denied')
   assert.equal(env.sandbox._reloaded, 1)
   assert.equal(env.sandbox[DISABLE_KEY], true)
+})
+
+test('a failed denial clears a stored grant so the next visit stays off', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  assert.equal(gaScripts(env.document).length, 1)
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.equal(env.storage.getItem('instilligent.analytics_consent'), null)
+  const next = boot(env.storage.snapshot())
+  assert.equal(gaScripts(next.document).length, 0)
+  assert.equal(next.sandbox.dataLayer, undefined)
+  assert.equal(next.sandbox.gtag, undefined)
+  assert.equal(next.sandbox[DISABLE_KEY], true)
+})
+
+test('a first decline whose save fails says the choice was not saved', () => {
+  const env = boot({})
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(button(env.document, 'denied'))
+  assert.equal(gaScripts(env.document).length, 0)
+  assert.equal(env.sandbox.dataLayer, undefined)
+  const status = statusText(env.document)
+  assert.match(status, /did not save your choice/)
+  assert.match(status, /stays off/)
+  assert.equal(env.storage.getItem('instilligent.analytics_consent'), null)
+})
+
+test('a grant stored in another tab does not mark this tab as on', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'denied' })
+  assert.equal(gaScripts(env.document).length, 0)
+  env.storage.setItem('instilligent.analytics_consent', 'granted')
+  env.sandbox.dispatchWindow('storage', {
+    key: 'instilligent.analytics_consent',
+    newValue: 'granted',
+  })
+  assert.equal(gaScripts(env.document).length, 0)
+  assert.equal(env.sandbox.gtag, undefined)
+  assert.equal(env.sandbox.dataLayer, undefined)
+  click(launcherOf(env.document))
+  const status = statusText(env.document)
+  assert.doesNotMatch(status, /Analytics is on/)
+  assert.match(status, /Analytics is off/)
 })
 
 test('a failed accept while GA is active does not say analytics stays off', () => {

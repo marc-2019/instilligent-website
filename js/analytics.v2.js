@@ -20,6 +20,7 @@
   var gaLoaded = false;
   var tagConsent = null;
   var collectionStopped = false;
+  var persistNote = null;
   var panelOpen = false;
   var banner = null;
   var launcher = null;
@@ -37,6 +38,17 @@
     try {
       localStorage.setItem(STORAGE_KEY, value);
       return storageGet() === value;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /* Fail closed. A stored grant must not survive a Decline we could not save. */
+  function storageRemove() {
+    try {
+      if (!localStorage.removeItem) return false;
+      localStorage.removeItem(STORAGE_KEY);
+      return storageGet() == null;
     } catch (e) {
       return false;
     }
@@ -115,12 +127,32 @@
       typeof window.gtag === "function";
   }
 
+  function collectingHere() {
+    return gaLoaded && !collectionStopped && window[DISABLE_KEY] !== true;
+  }
+
   function syncUi() {
     if (!banner || !launcher || !statusEl) return;
     var choice = storageGet();
     var decided = choice === "granted" || choice === "denied";
 
-    /* Stopped in this tab while a grant is still stored. Do not say it is off. */
+    if (persistNote === "not-saved") {
+      panelOpen = true;
+      statusEl.textContent = "This browser did not save your choice. Analytics stays off until you accept.";
+      banner.hidden = false;
+      launcher.hidden = true;
+      return;
+    }
+
+    if (persistNote === "grant-cleared") {
+      panelOpen = true;
+      statusEl.textContent = "Analytics is stopped in this tab. This browser did not save Decline, so the saved acceptance was removed. It stays off until you accept.";
+      banner.hidden = false;
+      launcher.hidden = true;
+      return;
+    }
+
+    /* Stopped here while a grant is still stored. Do not say it is off. */
     if (collectionStopped && choice === "granted") {
       panelOpen = true;
       statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
@@ -137,7 +169,8 @@
       return;
     }
 
-    statusEl.textContent = choice === "granted"
+    /* "On" means this tab is collecting, not that another tab stored a grant. */
+    statusEl.textContent = collectingHere()
       ? "Analytics is on. Decline to turn it off."
       : "Analytics is off. Accept to turn it on.";
     banner.hidden = !panelOpen;
@@ -172,6 +205,7 @@
         }
         return;
       }
+      persistNote = null;
       collectionStopped = false;
       setDisabled(false);
       closePanelAndFocusLauncher();
@@ -181,15 +215,23 @@
     }
 
     var saved = storageSet("denied");
+    var clearedGrant = false;
+    if (!saved && storageGet() === "granted") {
+      clearedGrant = storageRemove();
+    }
     /* gaLoaded stays true after an earlier failed save, so a later successful
        Decline still reloads and drops the running tag. */
     var shouldReload = gaLoaded;
     stopCollection();
     if (!saved) {
+      if (clearedGrant) persistNote = "grant-cleared";
+      else if (storageGet() === "granted") persistNote = "grant-remains";
+      else persistNote = "not-saved";
       panelOpen = true;
       syncUi();
       return;
     }
+    persistNote = null;
     closePanelAndFocusLauncher();
     if (shouldReload) reloadPage();
   }
@@ -199,7 +241,10 @@
     /* key null is localStorage.clear() in another tab. */
     var cleared = e.key === null;
     if (!cleared && e.key !== STORAGE_KEY) return;
-    if (!cleared && e.newValue === "granted") return;
+    if (!cleared && e.newValue === "granted") {
+      syncUi();
+      return;
+    }
     var hadTag = gaLoaded && !collectionStopped;
     stopCollection();
     if (hadTag || (cleared && gaLoaded)) {
