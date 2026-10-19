@@ -3,8 +3,8 @@
  * Run: node --test tests/analytics_consent.test.mjs
  *
  * The site is static HTML, so these files are the pages that get deployed.
- * Pages must load /js/analytics.v2.js (not the unversioned /js/analytics.js,
- * which browsers may still have cached as the old unconditional loader).
+ * Pages must load /js/analytics.v2.js. The unversioned script URL must not
+ * appear anywhere in the tree, because browsers may still have it cached.
  * The Google tag must not be injected unless stored consent is exactly "granted".
  */
 import test from 'node:test'
@@ -26,6 +26,7 @@ const PAGES = [
 ]
 
 const DISABLE_KEY = 'ga-disable-G-JCNLL09KHW'
+const LEGACY_SCRIPT_URL = '/js/' + 'analytics.js'
 
 const CSP = "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'"
 
@@ -250,12 +251,24 @@ test('no HTML page contains a gtag script, inline gtag, or the old unconditional
   }
 })
 
-test('no HTML references the unversioned analytics.js', () => {
-  assert.equal(existsSync(join(root, 'js/analytics.js')), false)
-  const files = htmlFiles()
+test('no file references the unversioned analytics script URL', () => {
+  assert.equal(existsSync(join(root, 'js', 'analytics.js')), false)
+  const files = []
+  const walk = (dir) => {
+    for (const name of readdirSync(dir, { withFileTypes: true })) {
+      if (name.name === '.git' || name.name === 'node_modules') continue
+      const p = join(dir, name.name)
+      if (name.isDirectory()) walk(p)
+      else files.push(p)
+    }
+  }
+  walk(root)
   for (const file of files) {
-    const html = read(file)
-    assert.doesNotMatch(html, /\/js\/analytics\.js/, file)
+    if (/\.(png|jpg|jpeg|gif|webp|ico)$/i.test(file)) continue
+    assert.equal(read(file.slice(root.length + 1)).includes(LEGACY_SCRIPT_URL), false, file)
+  }
+  for (const file of htmlFiles()) {
+    assert.equal(read(file).includes(LEGACY_SCRIPT_URL), false, file)
   }
   for (const file of PAGES) {
     const html = read(file)
@@ -413,6 +426,53 @@ test('a failed save on withdrawal still disables GA and does not claim it is off
   const before = env.sandbox.dataLayer.length
   env.document.dispatch('click', { target: portfolioAnchor() })
   assert.equal(env.sandbox.dataLayer.length, before)
+})
+
+test('retrying decline after a failed save reloads once the save succeeds', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  const originalSet = env.storage.setItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.equal(env.sandbox._reloaded, undefined)
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+
+  env.storage.setItem = originalSet
+  click(button(env.document, 'denied'))
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'denied')
+  assert.equal(env.sandbox._reloaded, 1)
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+})
+
+test('a failed accept while GA is active does not say analytics stays off', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  assert.equal(gaScripts(env.document).length, 1)
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'granted'))
+  const status = statusText(env.document)
+  assert.match(status, /still on/)
+  assert.doesNotMatch(status, /stays off/)
+  assert.equal(env.sandbox[DISABLE_KEY] === true, false)
+  assert.equal(gaScripts(env.document).length, 1)
+  assert.equal(env.storage.snapshot()['instilligent.analytics_consent'], 'granted')
+})
+
+test('localStorage.clear() in another tab disables GA in this tab', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  assert.equal(gaScripts(env.document).length, 1)
+  env.storage.getItem = () => null
+  env.sandbox.dispatchWindow('storage', { key: null, newValue: null })
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+  assert.equal(env.sandbox._reloaded, 1)
+  const update = env.sandbox.dataLayer.find((args) => args[0] === 'consent' && args[1] === 'update')
+  assert.ok(update)
+  assert.equal(update[2].analytics_storage, 'denied')
 })
 
 test('a withdrawal in another tab disables GA in this tab', () => {

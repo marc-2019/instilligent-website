@@ -1,8 +1,8 @@
 /* GA4 loader. Served as /js/analytics.v2.js.
  *
- * /js/* is cached immutable for one year. This filename is the cache bust
- * for the old unconditional /js/analytics.js. Do not point pages at that URL.
- * Bump the filename again if this behavior changes.
+ * /js/* is cached immutable for one year, so this file uses a versioned
+ * name. Do not add an unversioned analytics script URL. Bump the filename
+ * again if this behavior changes.
  *
  * The Google tag is injected only after an explicit grant. Consent starts
  * denied. Nothing here contacts Google, creates a dataLayer, or defines gtag
@@ -120,8 +120,8 @@
     var choice = storageGet();
     var decided = choice === "granted" || choice === "denied";
 
-    /* In-memory stop without a saved denial. Do not say analytics is off. */
-    if (collectionStopped && choice !== "denied") {
+    /* Stopped in this tab while a grant is still stored. Do not say it is off. */
+    if (collectionStopped && choice === "granted") {
       panelOpen = true;
       statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
       banner.hidden = false;
@@ -162,7 +162,13 @@
     if (value === "granted") {
       if (!storageSet("granted")) {
         if (statusEl) {
-          statusEl.textContent = "This browser blocked saving your choice, so analytics stays off.";
+          if (gaLoaded && !collectionStopped) {
+            statusEl.textContent = "Analytics is still on. This browser did not save your choice.";
+          } else if (collectionStopped) {
+            statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
+          } else {
+            statusEl.textContent = "This browser blocked saving your choice, so analytics stays off.";
+          }
         }
         return;
       }
@@ -175,7 +181,9 @@
     }
 
     var saved = storageSet("denied");
-    var hadTag = gaLoaded && !collectionStopped;
+    /* gaLoaded stays true after an earlier failed save, so a later successful
+       Decline still reloads and drops the running tag. */
+    var shouldReload = gaLoaded;
     stopCollection();
     if (!saved) {
       panelOpen = true;
@@ -183,15 +191,18 @@
       return;
     }
     closePanelAndFocusLauncher();
-    if (hadTag) reloadPage();
+    if (shouldReload) reloadPage();
   }
 
   function onStorage(e) {
-    if (!e || e.key !== STORAGE_KEY) return;
-    if (e.newValue === "granted") return;
+    if (!e) return;
+    /* key null is localStorage.clear() in another tab. */
+    var cleared = e.key === null;
+    if (!cleared && e.key !== STORAGE_KEY) return;
+    if (!cleared && e.newValue === "granted") return;
     var hadTag = gaLoaded && !collectionStopped;
     stopCollection();
-    if (hadTag) {
+    if (hadTag || (cleared && gaLoaded)) {
       reloadPage();
       return;
     }
