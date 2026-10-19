@@ -468,6 +468,86 @@ test('a failed denial clears a stored grant so the next visit stays off', () => 
   assert.equal(next.sandbox[DISABLE_KEY], true)
 })
 
+test('a denial removes a grant when reads and writes throw', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  assert.equal(gaScripts(env.document).length, 1)
+  env.storage.getItem = () => {
+    throw new Error('read')
+  }
+  env.storage.setItem = () => {
+    throw new Error('write')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  assert.equal(Object.prototype.hasOwnProperty.call(env.storage.snapshot(), 'instilligent.analytics_consent'), false)
+  assert.equal(env.sandbox[DISABLE_KEY], true)
+  const next = boot(env.storage.snapshot())
+  assert.equal(gaScripts(next.document).length, 0)
+  assert.equal(next.sandbox.dataLayer, undefined)
+  assert.equal(next.sandbox.gtag, undefined)
+  assert.equal(next.sandbox[DISABLE_KEY], true)
+})
+
+test('a later grant from another tab clears a stale save warning', () => {
+  const env = boot({})
+  const originalSet = env.storage.setItem
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(button(env.document, 'denied'))
+  assert.match(statusText(env.document), /did not save your choice/)
+  env.storage.setItem = originalSet
+  env.storage.setItem('instilligent.analytics_consent', 'granted')
+  env.sandbox.dispatchWindow('storage', {
+    key: 'instilligent.analytics_consent',
+    newValue: 'granted',
+  })
+  const status = statusText(env.document)
+  assert.doesNotMatch(status, /did not save/)
+  assert.doesNotMatch(status, /acceptance was removed/)
+  assert.doesNotMatch(status, /new visit can turn it on/)
+  assert.doesNotMatch(status, /Analytics is on/)
+  assert.match(status, /Analytics is off/)
+  assert.equal(gaScripts(env.document).length, 0)
+  assert.equal(env.sandbox.dataLayer, undefined)
+})
+
+test('a failed accept after the grant was cleared does not promise the next visit', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'granted' })
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  click(button(env.document, 'granted'))
+  const status = statusText(env.document)
+  assert.doesNotMatch(status, /new visit can turn it on/)
+  assert.match(status, /stays off until you accept/)
+  const next = boot(env.storage.snapshot())
+  assert.equal(gaScripts(next.document).length, 0)
+  assert.equal(next.sandbox.dataLayer, undefined)
+})
+
+test('escape during an unsaved decline does not focus the hidden launcher', () => {
+  const env = boot({ 'instilligent.analytics_consent': 'denied' })
+  env.storage.setItem = () => {
+    throw new Error('blocked')
+  }
+  env.storage.removeItem = () => {
+    throw new Error('blocked')
+  }
+  click(launcherOf(env.document))
+  click(button(env.document, 'denied'))
+  const banner = bannerOf(env.document)
+  const launcher = launcherOf(env.document)
+  assert.equal(banner.hidden, false)
+  assert.equal(launcher.hidden, true)
+  env.document.dispatch('keydown', { key: 'Escape' })
+  assert.equal(banner.hidden, false)
+  assert.equal(launcher.hidden, true)
+  assert.notEqual(env.document.activeElement, launcher)
+})
+
 test('a first decline whose save fails says the choice was not saved', () => {
   const env = boot({})
   env.storage.setItem = () => {

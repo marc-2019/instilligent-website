@@ -43,14 +43,19 @@
     }
   }
 
-  /* Fail closed. A stored grant must not survive a Decline we could not save. */
+  /* Fail closed. A stored grant must not survive a Decline we could not save.
+     A later read error does not undo a removeItem that already succeeded. */
   function storageRemove() {
     try {
-      if (!localStorage.removeItem) return false;
+      if (typeof localStorage.removeItem !== "function") return false;
       localStorage.removeItem(STORAGE_KEY);
-      return storageGet() == null;
     } catch (e) {
       return false;
+    }
+    try {
+      return localStorage.getItem(STORAGE_KEY) == null;
+    } catch (e) {
+      return true;
     }
   }
 
@@ -152,8 +157,8 @@
       return;
     }
 
-    /* Stopped here while a grant is still stored. Do not say it is off. */
-    if (collectionStopped && choice === "granted") {
+    /* Our Decline could not remove a stored grant. A later external grant clears persistNote. */
+    if (persistNote === "grant-remains") {
       panelOpen = true;
       statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
       banner.hidden = false;
@@ -180,7 +185,8 @@
   function closePanelAndFocusLauncher() {
     panelOpen = false;
     syncUi();
-    if (launcher && typeof launcher.focus === "function") launcher.focus();
+    if (panelOpen || !launcher || launcher.hidden) return;
+    if (typeof launcher.focus === "function") launcher.focus();
   }
 
   function reloadPage() {
@@ -197,8 +203,10 @@
         if (statusEl) {
           if (gaLoaded && !collectionStopped) {
             statusEl.textContent = "Analytics is still on. This browser did not save your choice.";
-          } else if (collectionStopped) {
+          } else if (collectionStopped && storageGet() === "granted") {
             statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
+          } else if (collectionStopped) {
+            statusEl.textContent = "Analytics is stopped in this tab. This browser did not save your choice. It stays off until you accept.";
           } else {
             statusEl.textContent = "This browser blocked saving your choice, so analytics stays off.";
           }
@@ -214,18 +222,23 @@
       return;
     }
 
-    var saved = storageSet("denied");
-    var clearedGrant = false;
-    if (!saved && storageGet() === "granted") {
-      clearedGrant = storageRemove();
+    var readable = true;
+    var before = null;
+    try {
+      before = localStorage.getItem(STORAGE_KEY);
+    } catch (err) {
+      readable = false;
     }
+    var saved = storageSet("denied");
+    var removed = false;
+    if (!saved) removed = storageRemove();
     /* gaLoaded stays true after an earlier failed save, so a later successful
        Decline still reloads and drops the running tag. */
     var shouldReload = gaLoaded;
     stopCollection();
     if (!saved) {
-      if (clearedGrant) persistNote = "grant-cleared";
-      else if (storageGet() === "granted") persistNote = "grant-remains";
+      if (removed && (before === "granted" || !readable)) persistNote = "grant-cleared";
+      else if (!removed && (before === "granted" || !readable || storageGet() === "granted")) persistNote = "grant-remains";
       else persistNote = "not-saved";
       panelOpen = true;
       syncUi();
@@ -242,11 +255,13 @@
     var cleared = e.key === null;
     if (!cleared && e.key !== STORAGE_KEY) return;
     if (!cleared && e.newValue === "granted") {
+      persistNote = null;
       syncUi();
       return;
     }
     var hadTag = gaLoaded && !collectionStopped;
     stopCollection();
+    persistNote = null;
     if (hadTag || (cleared && gaLoaded)) {
       reloadPage();
       return;
@@ -320,7 +335,7 @@
     document.body.appendChild(launcher);
 
     document.addEventListener("keydown", function (e) {
-      if (!e || e.key !== "Escape" || !panelOpen) return;
+      if (!e || e.key !== "Escape" || !panelOpen || persistNote) return;
       var choice = storageGet();
       if (choice !== "granted" && choice !== "denied") return;
       if (collectionStopped && choice !== "denied") return;
