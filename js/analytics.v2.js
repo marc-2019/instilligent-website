@@ -1,10 +1,13 @@
-/* GA4 loader. The Google tag is injected only after an explicit grant.
+/* GA4 loader. Served as /js/analytics.v2.js.
  *
- * Consent starts denied. Nothing in this file contacts Google, creates a
- * dataLayer, or defines gtag until localStorage holds exactly "granted".
- * A missing value and "denied" both keep the tag unloaded, so there is no
- * default-denied Consent Mode ping. Decline and withdrawal persist; later
- * page views load the tag only when the stored value is still "granted".
+ * /js/* is cached immutable for one year. This filename is the cache bust
+ * for the old unconditional /js/analytics.js. Do not point pages at that URL.
+ * Bump the filename again if this behavior changes.
+ *
+ * The Google tag is injected only after an explicit grant. Consent starts
+ * denied. Nothing here contacts Google, creates a dataLayer, or defines gtag
+ * until localStorage holds exactly "granted". There is no default-denied
+ * Consent Mode ping.
  *
  * Measurement ID: G-JCNLL09KHW (instilligent.com, wired 2026-06-22).
  */
@@ -12,9 +15,11 @@
   var GA4_ID = "G-JCNLL09KHW";
   var STORAGE_KEY = "instilligent.analytics_consent";
   var GA_SRC = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+  var DISABLE_KEY = "ga-disable-" + GA4_ID;
 
   var gaLoaded = false;
   var tagConsent = null;
+  var collectionStopped = false;
   var panelOpen = false;
   var banner = null;
   var launcher = null;
@@ -37,9 +42,15 @@
     }
   }
 
+  function setDisabled(disabled) {
+    window[DISABLE_KEY] = disabled;
+  }
+
   /* Only the exact stored grant may load the tag. */
   function loadGa() {
     if (gaLoaded) return;
+    if (collectionStopped) return;
+    if (window[DISABLE_KEY] === true) return;
     if (storageGet() !== "granted") return;
 
     var parent = document.head || document.documentElement;
@@ -71,16 +82,21 @@
     window.gtag("config", GA4_ID);
   }
 
-  /* Stop an already-injected tag. Never called unless this page loaded it. */
-  function denyLoadedTag() {
-    if (!gaLoaded || tagConsent === "denied" || typeof window.gtag !== "function") return;
+  /* Stop an already-injected tag. The disable flag is set first. A denied
+     consent update follows when the real gtag function is still in place.
+     Callers reload after a saved withdrawal so the running library is discarded. */
+  function stopCollection() {
+    setDisabled(true);
+    collectionStopped = true;
+    if (gaLoaded && tagConsent !== "denied" && typeof window.gtag === "function") {
+      window.gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+    }
     tagConsent = "denied";
-    window.gtag("consent", "update", {
-      analytics_storage: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
-    });
   }
 
   /* Resume a tag that was already injected, then withdrawn, on this page. */
@@ -92,10 +108,26 @@
     });
   }
 
+  function analyticsAllowed() {
+    return !collectionStopped &&
+      window[DISABLE_KEY] !== true &&
+      storageGet() === "granted" &&
+      typeof window.gtag === "function";
+  }
+
   function syncUi() {
     if (!banner || !launcher || !statusEl) return;
     var choice = storageGet();
     var decided = choice === "granted" || choice === "denied";
+
+    /* In-memory stop without a saved denial. Do not say analytics is off. */
+    if (collectionStopped && choice !== "denied") {
+      panelOpen = true;
+      statusEl.textContent = "Analytics is stopped in this tab. This browser did not save that choice, so a new visit can turn it on again.";
+      banner.hidden = false;
+      launcher.hidden = true;
+      return;
+    }
 
     if (!decided) {
       panelOpen = true;
@@ -112,22 +144,59 @@
     launcher.hidden = panelOpen;
   }
 
+  function closePanelAndFocusLauncher() {
+    panelOpen = false;
+    syncUi();
+    if (launcher && typeof launcher.focus === "function") launcher.focus();
+  }
+
+  function reloadPage() {
+    if (window.location && typeof window.location.reload === "function") {
+      window.location.reload();
+    }
+  }
+
   function choose(value) {
     if (value !== "granted" && value !== "denied") return;
-    if (!storageSet(value)) {
-      if (statusEl) {
-        statusEl.textContent = "This browser blocked saving your choice, so analytics stays off.";
+
+    if (value === "granted") {
+      if (!storageSet("granted")) {
+        if (statusEl) {
+          statusEl.textContent = "This browser blocked saving your choice, so analytics stays off.";
+        }
+        return;
       }
+      collectionStopped = false;
+      setDisabled(false);
+      closePanelAndFocusLauncher();
+      if (gaLoaded) allowLoadedTag();
+      else loadGa();
+      return;
+    }
+
+    var saved = storageSet("denied");
+    var hadTag = gaLoaded && !collectionStopped;
+    stopCollection();
+    if (!saved) {
+      panelOpen = true;
+      syncUi();
+      return;
+    }
+    closePanelAndFocusLauncher();
+    if (hadTag) reloadPage();
+  }
+
+  function onStorage(e) {
+    if (!e || e.key !== STORAGE_KEY) return;
+    if (e.newValue === "granted") return;
+    var hadTag = gaLoaded && !collectionStopped;
+    stopCollection();
+    if (hadTag) {
+      reloadPage();
       return;
     }
     panelOpen = false;
     syncUi();
-    if (value === "granted") {
-      if (gaLoaded) allowLoadedTag();
-      else loadGa();
-    } else {
-      denyLoadedTag();
-    }
   }
 
   function buildUi() {
@@ -143,9 +212,10 @@
     title.textContent = "Analytics consent";
 
     var body = document.createElement("p");
-    body.textContent = "We use Google Analytics to measure page visits. It stays off until you accept. Accept loads it in this browser. Decline leaves it off.";
+    body.textContent = "We use Google Analytics to measure page visits. It stays off until you accept. Accept loads it in this browser. Decline leaves it off. Withdrawing consent stops it in this tab and on later visits.";
 
     statusEl = document.createElement("p");
+    statusEl.id = "analytics-consent-status";
     statusEl.className = "analytics-consent__status";
     statusEl.setAttribute("aria-live", "polite");
 
@@ -197,14 +267,13 @@
       if (!e || e.key !== "Escape" || !panelOpen) return;
       var choice = storageGet();
       if (choice !== "granted" && choice !== "denied") return;
-      panelOpen = false;
-      syncUi();
-      launcher.focus();
+      if (collectionStopped && choice !== "denied") return;
+      closePanelAndFocusLauncher();
     });
   }
 
   document.addEventListener("click", function (e) {
-    if (storageGet() !== "granted" || typeof window.gtag !== "function") return;
+    if (!analyticsAllowed()) return;
     var target = e && e.target;
     var el = target && target.closest ? target.closest("[data-cf-event]") : null;
     if (!el) return;
@@ -231,8 +300,10 @@
     if (!document.body || window.__instilligentAnalyticsInit) return;
     window.__instilligentAnalyticsInit = true;
     buildUi();
+    if (storageGet() !== "granted") setDisabled(true);
     syncUi();
     if (storageGet() === "granted") loadGa();
+    window.addEventListener("storage", onStorage);
   }
 
   start();
